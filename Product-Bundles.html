@@ -1,0 +1,672 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Bundles - AeroVista</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .breadcrumb {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 30px;
+            color: white;
+        }
+        
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        
+        .breadcrumb a:hover {
+            opacity: 1;
+        }
+        
+        .navigation {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .bundles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .bundle-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bundle-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+        }
+        
+        .bundle-card.featured {
+            border: 3px solid #ff6b6b;
+            transform: scale(1.05);
+        }
+        
+        .bundle-card.featured::before {
+            content: "MOST POPULAR";
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: #ff6b6b;
+            color: white;
+            padding: 8px 40px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            transform: rotate(45deg);
+        }
+        
+        .bundle-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .bundle-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .bundle-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+        
+        .bundle-price .currency {
+            font-size: 1.2rem;
+            vertical-align: top;
+        }
+        
+        .bundle-savings {
+            background: #27ae60;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        
+        .bundle-description {
+            color: #555;
+            margin-bottom: 25px;
+            line-height: 1.6;
+            text-align: center;
+        }
+        
+        .bundle-features {
+            margin-bottom: 30px;
+        }
+        
+        .bundle-features h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .bundle-features ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .bundle-features li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 25px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .bundle-features li:before {
+            content: "âœ“";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        .bundle-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .bundle-value {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .bundle-value .original-price {
+            text-decoration: line-through;
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+        
+        .bundle-value .savings-amount {
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-secondary {
+            background: #ecf0f1;
+            color: #2c3e50;
+            margin-top: 10px;
+        }
+        
+        .btn-secondary:hover {
+            background: #d5dbdb;
+        }
+        
+        .comparison-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .comparison-table th {
+            background: #f8f9fa;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .comparison-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .price-cell {
+            font-weight: bold;
+            color: #e74c3c;
+            font-size: 1.2rem;
+        }
+        
+        .savings-cell {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-white {
+            background: white;
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+        
+        .btn-white:hover {
+            background: #f8f9fa;
+        }
+        
+        .benefits-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .benefit-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .benefit-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .benefit-description {
+            color: #555;
+            line-height: 1.5;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .bundles-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-table {
+                font-size: 0.9rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+        <nav class="navigation" role="navigation" aria-label="Main navigation">
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="Individual-Products.html">Products</a>
+                <a href="Product-Bundles.html">Bundles</a>
+                <a href="Support.html">Support</a>
+            </div>
+        </nav><a href="#main-content" style="position: absolute; top: -40px; left: 6px; background: #000; color: #fff; padding: 8px; text-decoration: none; z-index: 1000;" onfocus="this.style.top=`6px`" onblur="this.style.top=`-40px`">Skip to main content</a>
+    <div class="container" id="main-content">
+        <div class="header">
+            <h1>Product Bundles</h1>
+            <p>Save up to 48% with our strategic bundles designed for maximum value</p>
+        </div>
+
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> > <a href="Product-Bundles.html">Product Bundles</a>
+        </div>
+
+        <div class="navigation">
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="Individual-Products.html">Individual Products</a>
+                <a href="Product-Bundles.html">Product Bundles</a>
+                <a href="Premium-Tiers.html">Premium Tiers</a>
+                <a href="Product-Comparison.html">Compare Products</a>
+            </div>
+        </div>
+
+        <div class="bundles-grid">
+            <div class="bundle-card">
+                <div class="bundle-header">
+                    <div class="bundle-title">AI Starter Pack</div>
+                    <div class="bundle-price"><span class="currency">$</span>97</div>
+                    <div class="bundle-savings">Save $47</div>
+                </div>
+                <div class="bundle-description">
+                    Perfect for businesses getting started with AI. Includes everything you need to begin your AI transformation journey.
+                </div>
+                <div class="bundle-value">
+                    <div class="original-price">Individual Value: $84</div>
+                    <div class="savings-amount">You Save: $47 (56% off)</div>
+                </div>
+                <div class="bundle-features">
+                    <h4>What's Included:</h4>
+                    <ul>
+                        <li>AI Implementation Checklist ($47)</li>
+                        <li>AI Tools Starter Kit ($37)</li>
+                        <li>Quick Start Guide for AI Implementation</li>
+                        <li>30-minute consultation call</li>
+                        <li>Email support for 30 days</li>
+                        <li>Implementation checklist</li>
+                    </ul>
+                </div>
+                <a href="AI-Starter-Pack.html" class="btn btn-primary">Get AI Starter Pack</a>
+                <a href="Product-Comparison.html" class="btn btn-secondary">Compare with Others</a>
+            </div>
+
+            <div class="bundle-card">
+                <div class="bundle-header">
+                    <div class="bundle-title">Marketing Mastery</div>
+                    <div class="bundle-price"><span class="currency">$</span>127</div>
+                    <div class="bundle-savings">Save $67</div>
+                </div>
+                <div class="bundle-description">
+                    Complete marketing system for businesses focused on growth. Everything you need to master email and social media marketing.
+                </div>
+                <div class="bundle-value">
+                    <div class="original-price">Individual Value: $124</div>
+                    <div class="savings-amount">You Save: $67 (54% off)</div>
+                </div>
+                <div class="bundle-features">
+                    <h4>What's Included:</h4>
+                    <ul>
+                        <li>Email Marketing Automation ($67)</li>
+                        <li>Social Media Content Calendar ($57)</li>
+                        <li>Marketing ROI Calculator</li>
+                        <li>45-minute strategy session</li>
+                        <li>Marketing templates library</li>
+                        <li>30-day implementation plan</li>
+                    </ul>
+                </div>
+                <a href="Marketing-Mastery.html" class="btn btn-primary">Get Marketing Mastery</a>
+                <a href="Product-Comparison.html" class="btn btn-secondary">Compare with Others</a>
+            </div>
+
+            <div class="bundle-card featured">
+                <div class="bundle-header">
+                    <div class="bundle-title">Business Automation Suite</div>
+                    <div class="bundle-price"><span class="currency">$</span>197</div>
+                    <div class="bundle-savings">Save $108</div>
+                </div>
+                <div class="bundle-description">
+                    Transform your business with comprehensive automation. Perfect for growing businesses ready to implement serious automation strategies.
+                </div>
+                <div class="bundle-value">
+                    <div class="original-price">Individual Value: $211</div>
+                    <div class="savings-amount">You Save: $108 (51% off)</div>
+                </div>
+                <div class="bundle-features">
+                    <h4>What's Included:</h4>
+                    <ul>
+                        <li>Business Process Automation ($97)</li>
+                        <li>AI Implementation Checklist ($47)</li>
+                        <li>Email Marketing Automation ($67)</li>
+                        <li>Process Optimization Templates</li>
+                        <li>60-minute strategy session</li>
+                        <li>90-day implementation support</li>
+                        <li>Priority email support</li>
+                    </ul>
+                </div>
+                <a href="Business-Automation-Suite.html" class="btn btn-primary">Get Business Suite</a>
+                <a href="Product-Comparison.html" class="btn btn-secondary">Compare with Others</a>
+            </div>
+
+            <div class="bundle-card">
+                <div class="bundle-header">
+                    <div class="bundle-title">Complete Business System</div>
+                    <div class="bundle-price"><span class="currency">$</span>297</div>
+                    <div class="bundle-savings">Save $158</div>
+                </div>
+                <div class="bundle-description">
+                    Everything you need for complete business transformation. The ultimate package for businesses serious about automation and growth.
+                </div>
+                <div class="bundle-value">
+                    <div class="original-price">Individual Value: $305</div>
+                    <div class="savings-amount">You Save: $158 (52% off)</div>
+                </div>
+                <div class="bundle-features">
+                    <h4>What's Included:</h4>
+                    <ul>
+                        <li>All 5 Individual Products ($305 value)</li>
+                        <li>Master Implementation Guide</li>
+                        <li>Priority Support (48-hour response)</li>
+                        <li>90-minute comprehensive strategy session</li>
+                        <li>Custom automation recommendations</li>
+                        <li>Lifetime access to updates</li>
+                        <li>Exclusive customer community</li>
+                    </ul>
+                </div>
+                <a href="Complete-Business-System.html" class="btn btn-primary">Get Complete System</a>
+                <a href="Product-Comparison.html" class="btn btn-secondary">Compare with Others</a>
+            </div>
+        </div>
+
+        <div class="benefits-section">
+            <h2 class="section-title">Why Choose Our Bundles?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">ðŸ’°</div>
+                    <div class="benefit-title">Maximum Savings</div>
+                    <div class="benefit-description">Save up to 48% compared to buying individual products. Get more value for your investment.</div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">ðŸŽ¯</div>
+                    <div class="benefit-title">Strategic Focus</div>
+                    <div class="benefit-description">Each bundle is designed for specific business needs and goals. No wasted products or features.</div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">ðŸš€</div>
+                    <div class="benefit-title">Faster Implementation</div>
+                    <div class="benefit-description">Coordinated products work together seamlessly, reducing implementation time and complexity.</div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">ðŸŽ</div>
+                    <div class="benefit-title">Bonus Materials</div>
+                    <div class="benefit-description">Exclusive guides, templates, and consultation calls not available with individual products.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="comparison-section">
+            <h2 class="section-title">Bundle Comparison</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Bundle</th>
+                        <th>Price</th>
+                        <th>Savings</th>
+                        <th>Products Included</th>
+                        <th>Best For</th>
+                        <th>Consultation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>AI Starter Pack</strong></td>
+                        <td class="price-cell">$97</td>
+                        <td class="savings-cell">$47 (56%)</td>
+                        <td>2 products</td>
+                        <td>AI beginners</td>
+                        <td>30 minutes</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Marketing Mastery</strong></td>
+                        <td class="price-cell">$127</td>
+                        <td class="savings-cell">$67 (54%)</td>
+                        <td>2 products</td>
+                        <td>Marketing teams</td>
+                        <td>45 minutes</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Business Automation Suite</strong></td>
+                        <td class="price-cell">$197</td>
+                        <td class="savings-cell">$108 (51%)</td>
+                        <td>3 products</td>
+                        <td>Growing businesses</td>
+                        <td>60 minutes</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Complete Business System</strong></td>
+                        <td class="price-cell">$297</td>
+                        <td class="savings-cell">$158 (52%)</td>
+                        <td>5 products</td>
+                        <td>Complete transformation</td>
+                        <td>90 minutes</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="cta-section">
+            <h2>Ready to Save Big?</h2>
+            <p>Choose the bundle that best fits your business needs and start saving immediately.</p>
+            <div class="cta-buttons">
+                <a href="Premium-Tiers.html" class="btn btn-white">View Premium Tiers</a>
+                <a href="Product-Comparison.html" class="btn btn-white">Compare All Options</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add click tracking for buttons
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const buttonText = this.textContent;
+                console.log('Button clicked:', buttonText);
+                // You can integrate with Google Analytics, Facebook Pixel, etc.
+            });
+        });
+
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+<script src="performance.js"></script>    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+

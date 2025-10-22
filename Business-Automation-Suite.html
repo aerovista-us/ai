@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Automation Suite - AeroVista</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .header { text-align: center; color: white; margin-bottom: 50px; }
+        .header h1 { font-size: 3.5rem; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .header p { font-size: 1.3rem; opacity: 0.9; margin-bottom: 30px; }
+        .btn { padding: 15px 30px; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: all 0.3s ease; text-decoration: none; display: inline-block; text-align: center; }
+        .btn-primary { background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%); color: white; }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4); }
+        .btn-secondary { background: rgba(255, 255, 255, 0.2); color: white; border: 2px solid white; }
+        .btn-secondary:hover { background: white; color: #667eea; }
+        .navigation { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 20px; margin-bottom: 40px; }
+        .nav-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .nav-item { background: rgba(255, 255, 255, 0.1); border-radius: 10px; padding: 20px; text-align: center; transition: all 0.3s ease; text-decoration: none; color: white; }
+        .nav-item:hover { background: rgba(255, 255, 255, 0.2); transform: translateY(-5px); }
+        .content { background: white; border-radius: 20px; padding: 40px; margin-bottom: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .bundle-info { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+        .bundle-details h2 { color: #2c3e50; margin-bottom: 20px; font-size: 2rem; }
+        .bundle-price { font-size: 3rem; font-weight: bold; color: #e74c3c; margin-bottom: 20px; }
+        .bundle-savings { background: #27ae60; color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: bold; display: inline-block; margin-bottom: 20px; }
+        .bundle-description { color: #555; margin-bottom: 30px; line-height: 1.6; font-size: 1.1rem; }
+        .features { margin-bottom: 30px; }
+        .features h3 { color: #2c3e50; margin-bottom: 15px; }
+        .features ul { list-style: none; padding: 0; }
+        .features li { padding: 8px 0; position: relative; padding-left: 25px; }
+        .features li:before { content: "âœ“"; position: absolute; left: 0; color: #27ae60; font-weight: bold; font-size: 1.2rem; }
+        .cta-section { background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 15px; padding: 30px; text-align: center; }
+        .cta-section h3 { color: #2c3e50; margin-bottom: 20px; }
+        .cta-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+        .featured { border: 3px solid #ff6b6b; position: relative; }
+        .featured::before { content: "MOST POPULAR"; position: absolute; top: 20px; right: -30px; background: #ff6b6b; color: white; padding: 5px 40px; font-size: 0.8rem; font-weight: bold; transform: rotate(45deg); }
+        @media (max-width: 768px) { .bundle-info { grid-template-columns: 1fr; } .header h1 { font-size: 2.5rem; } .cta-buttons { flex-direction: column; align-items: center; } }
+    </style>
+</head>
+<body>
+        <nav class="navigation" role="navigation" aria-label="Main navigation">
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="Individual-Products.html">Products</a>
+                <a href="Product-Bundles.html">Bundles</a>
+                <a href="Support.html">Support</a>
+            </div>
+        </nav><a href="#main-content" style="position: absolute; top: -40px; left: 6px; background: #000; color: #fff; padding: 8px; text-decoration: none; z-index: 1000;" onfocus="this.style.top=`6px`" onblur="this.style.top=`-40px`">Skip to main content</a>
+    <div class="container" id="main-content">
+        <div class="header">
+            <h1>Business Automation Suite</h1>
+            <p>Transform your business - Save $108 with our most popular bundle</p>
+        </div>
+        <div class="navigation">
+            <div class="nav-grid">
+                <a href="index.html" class="nav-item"><h3>Home</h3><p>Return to main page</p></a>
+                <a href="Product-Bundles.html" class="nav-item"><h3>All Bundles</h3><p>View all bundles</p></a>
+                <a href="Product-Comparison.html" class="nav-item"><h3>Compare</h3><p>Compare options</p></a>
+                <a href="Individual-Products.html" class="nav-item"><h3>Products</h3><p>View individual products</p></a>
+            </div>
+        </div>
+        <div class="content featured">
+            <div class="bundle-info">
+                <div class="bundle-details">
+                    <h2>Business Automation Suite</h2>
+                    <div class="bundle-price">$197</div>
+                    <div class="bundle-savings">Save $108</div>
+                    <div class="bundle-description">Transform your business with our most popular bundle. Everything you need to automate and scale your operations.</div>
+                    <div class="features">
+                        <h3>What's Included:</h3>
+                        <ul>
+                            <li>Business Process Automation</li>
+                            <li>AI Implementation Checklist</li>
+                            <li>Email Marketing Automation</li>
+                            <li>Process Optimization Templates</li>
+                            <li>60-minute strategy session</li>
+                            <li>Priority support for 90 days</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="cta-section">
+                    <h3>Ready to Transform Your Business?</h3>
+                    <p>Join thousands of businesses that have increased their efficiency by 500%+ using our automation suite.</p>
+                    <div class="cta-buttons">
+                        <a href="Business-Automation-Suite/landing-page.html" class="btn btn-primary">Get Business Suite</a>
+                        <a href="Product-Comparison.html" class="btn btn-secondary">Compare Options</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="performance.js"></script>    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+

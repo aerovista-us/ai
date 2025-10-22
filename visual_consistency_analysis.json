@@ -1,0 +1,359 @@
+﻿{
+    "font_analysis":  {
+
+                      },
+    "design_consistency":  {
+
+                           },
+    "pages_analyzed":  [
+                           {
+                               "issues":  [
+                                              "Too many different colors: 10",
+                                              "Missing button classes",
+                                              "Missing alt attributes for images"
+                                          ],
+                               "recommendations":  [
+
+                                                   ],
+                               "font_consistency":  35,
+                               "design_score":  105,
+                               "layout_consistency":  45,
+                               "color_consistency":  0,
+                               "page_name":  "AI-Implementation-Checklist.html",
+                               "overall_score":  185
+                           },
+                           {
+                               "issues":  [
+                                              "Too many different colors: 10",
+                                              "Missing button classes",
+                                              "Missing alt attributes for images"
+                                          ],
+                               "recommendations":  [
+
+                                                   ],
+                               "font_consistency":  35,
+                               "design_score":  105,
+                               "layout_consistency":  45,
+                               "color_consistency":  0,
+                               "page_name":  "AI-Starter-Pack.html",
+                               "overall_score":  185
+                           },
+                           {
+                               "issues":  [
+                                              "Too many different colors: 10",
+                                              "Missing button classes",
+                                              "Missing alt attributes for images"
+                                          ],
+                               "recommendations":  [
+
+                                                   ],
+                               "font_consistency":  35,
+                               "design_score":  105,
+                               "layout_consistency":  45,
+                               "color_consistency":  0,
+                               "page_name":  "AI-Tools-Starter-Kit.html",
+                               "overall_score":  185
+                           },
+                           {
+                               "issues":  [
+                                              "Too many different colors: 10",
+                                              "Missing button classes",
+                                              "Missing alt attributes for images"
+                                          ],
+                               "recommendations":  [
+
+                                                   ],
+                               "font_consistency":  35,
+                               "design_score":  105,
+                               "layout_consistency":  45,
+                               "color_consistency":  0,
+                               "page_name":  "Business-Automation-Suite.html",
+                               "overall_score":  185
+                           },
+                           {
+                               "issues":  [
+                                              "Too many different colors: 10",
+                                              "Missing button classes",
+                                              "Missing alt attributes for images"
+                                          ],
+                               "recommendations":  [
+
+                                                   ],
+                               "font_consistency":  35,
+                               "design_score":  105,
+                               "layout_consistency":  45,
+                               "color_consistency":  0,
+                               "page_name":  "Business-Process-Automation.html",
+                               "overall_score":  185
+                           },
+                           {
+                               "issues":  [
+                                              "Too many different colors: 10",
+                                              "Missing button classes",
+                                              "Missing alt attributes for images"
+                                          ],
+                               "recommendations":  [
+
+                                                   ],
+                               "font_consistency":  35,
+                               "design_score":  105,
+                               "layout_consistency":  45,
+                               "color_consistency":  0,
+                               "page_name":  "Complete-Business-System.html",
+                               "overall_score":  185
+                           },
+                           {
+                               "issues":  [
+                                              "Too many different colors: 10",
+                                              "Missing button classes",
+                                              "Missing alt attributes for images"
+                                          ],
+                               "recommendations":  [
+
+                                                   ],
+                               "font_consistency":  35,
+                               "design_score":  105,
+                               "layout_consistency":  45,
+                               "color_consistency":  0,
+                               "page_name":  "COMPREHENSIVE_PRODUCT_ANALYSIS_REPORT.html",
+                               "overall_score":  185
+                           },
+                           {
+                               "issues":  [
+                                              "Too many different colors: 10",
+                                              "Missing button classes",
+                                              "Missing alt attributes for images"
+                                          ],
+                               "recommendations":  [
+
+                                                   ],
+                               "font_consistency":  35,
+                               "design_score":  105,
+                               "layout_consistency":  45,
+                               "color_consistency":  0,
+                               "page_name":  "Email-Marketing-Automation.html",
+                               "overall_score":  185
+                           },
+                           {
+                               "issues":  [
+                                              "Too many different colors: 10",
+                                              "Missing container class",
+                                              "Missing button classes",
+                                              "Missing alt attributes for images"
+                                          ],
+                               "recommendations":  [
+
+                                                   ],
+                               "font_consistency":  35,
+                               "design_score":  100,
+                               "layout_consistency":  45,
+                               "color_consistency":  0,
+                               "page_name":  "FINAL_UX_ENHANCEMENT_REPORT.html",
+                               "overall_score":  180
+                           },
+                           {
+                               "issues":  [
+                                              "Too many different colors: 10",
+                                              "Missing button classes",
+                                              "Missing alt attributes for images"
+                                          ],
+                               "recommendations":  [
+
+                                                   ],
+                               "font_consistency":  35,
+                               "design_score":  105,
+                               "layout_consistency":  45,
+                               "color_consistency":  0,
+                               "page_name":  "index.html",
+                               "overall_score":  185
+                           },
+                           {
+                               "issues":  [
+                                              "Too many different colors: 10",
+                                              "Missing button classes",
+                                              "Missing alt attributes for images"
+                                          ],
+                               "recommendations":  [
+
+                                                   ],
+                               "font_consistency":  35,
+                               "design_score":  105,
+                               "layout_consistency":  45,
+                               "color_consistency":  0,
+                               "page_name":  "Individual-Products.html",
+                               "overall_score":  185
+                           },
+                           {
+                               "issues":  [
+                                              "Too many different colors: 10",
+                                              "Missing button classes",
+                                              "Missing alt attributes for images"
+                                          ],
+                               "recommendations":  [
+
+                                                   ],
+                               "font_consistency":  35,
+                               "design_score":  105,
+                               "layout_consistency":  45,
+                               "color_consistency":  0,
+                               "page_name":  "link_analysis_report.html",
+                               "overall_score":  185
+                           },
+                           {
+                               "issues":  [
+                                              "Too many different colors: 10",
+                                              "Missing button classes",
+                                              "Missing alt attributes for images"
+                                          ],
+                               "recommendations":  [
+
+                                                   ],
+                               "font_consistency":  35,
+                               "design_score":  105,
+                               "layout_consistency":  45,
+                               "color_consistency":  0,
+                               "page_name":  "Marketing-Mastery.html",
+                               "overall_score":  185
+                           },
+                           {
+                               "issues":  [
+                                              "Too many different colors: 10",
+                                              "Missing button classes",
+                                              "Missing alt attributes for images"
+                                          ],
+                               "recommendations":  [
+
+                                                   ],
+                               "font_consistency":  35,
+                               "design_score":  105,
+                               "layout_consistency":  45,
+                               "color_consistency":  0,
+                               "page_name":  "Premium-Tiers.html",
+                               "overall_score":  185
+                           },
+                           {
+                               "issues":  [
+                                              "Too many different colors: 10",
+                                              "Missing button classes",
+                                              "Missing alt attributes for images"
+                                          ],
+                               "recommendations":  [
+
+                                                   ],
+                               "font_consistency":  35,
+                               "design_score":  105,
+                               "layout_consistency":  45,
+                               "color_consistency":  0,
+                               "page_name":  "Product-Bundles.html",
+                               "overall_score":  185
+                           },
+                           {
+                               "issues":  [
+                                              "Too many different colors: 10",
+                                              "Missing button classes",
+                                              "Missing alt attributes for images"
+                                          ],
+                               "recommendations":  [
+
+                                                   ],
+                               "font_consistency":  35,
+                               "design_score":  105,
+                               "layout_consistency":  45,
+                               "color_consistency":  0,
+                               "page_name":  "Product-Comparison.html",
+                               "overall_score":  185
+                           },
+                           {
+                               "issues":  [
+                                              "Too many different colors: 10",
+                                              "Missing button classes",
+                                              "Missing alt attributes for images"
+                                          ],
+                               "recommendations":  [
+
+                                                   ],
+                               "font_consistency":  35,
+                               "design_score":  105,
+                               "layout_consistency":  45,
+                               "color_consistency":  0,
+                               "page_name":  "Product-Hub.html",
+                               "overall_score":  185
+                           },
+                           {
+                               "issues":  [
+                                              "Too many different colors: 10",
+                                              "Missing button classes",
+                                              "Missing alt attributes for images"
+                                          ],
+                               "recommendations":  [
+
+                                                   ],
+                               "font_consistency":  35,
+                               "design_score":  105,
+                               "layout_consistency":  45,
+                               "color_consistency":  0,
+                               "page_name":  "Social-Media-Content-Calendar.html",
+                               "overall_score":  185
+                           },
+                           {
+                               "issues":  [
+                                              "Too many different colors: 10",
+                                              "Missing button classes",
+                                              "Missing alt attributes for images"
+                                          ],
+                               "recommendations":  [
+
+                                                   ],
+                               "font_consistency":  35,
+                               "design_score":  105,
+                               "layout_consistency":  45,
+                               "color_consistency":  0,
+                               "page_name":  "Success-Stories.html",
+                               "overall_score":  185
+                           },
+                           {
+                               "issues":  [
+                                              "Too many different colors: 10",
+                                              "Missing button classes",
+                                              "Missing alt attributes for images"
+                                          ],
+                               "recommendations":  [
+
+                                                   ],
+                               "font_consistency":  35,
+                               "design_score":  105,
+                               "layout_consistency":  45,
+                               "color_consistency":  0,
+                               "page_name":  "Support.html",
+                               "overall_score":  185
+                           },
+                           {
+                               "issues":  [
+                                              "Too many different colors: 10",
+                                              "Missing button classes",
+                                              "Missing alt attributes for images"
+                                          ],
+                               "recommendations":  [
+
+                                                   ],
+                               "font_consistency":  35,
+                               "design_score":  105,
+                               "layout_consistency":  45,
+                               "color_consistency":  0,
+                               "page_name":  "Unified-Sales-Platform.html",
+                               "overall_score":  185
+                           }
+                       ],
+    "layout_analysis":  {
+
+                        },
+    "color_analysis":  {
+
+                       },
+    "recommendations":  [
+                            "Address: Missing alt attributes for images",
+                            "Address: Too many different colors: 10",
+                            "Address: Missing button classes",
+                            "Overall design consistency needs improvement - implement design system"
+                        ]
+}

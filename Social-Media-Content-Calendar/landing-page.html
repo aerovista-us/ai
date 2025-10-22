@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Content Calendar - AeroVista LLC</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            color: #2d3748;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #667eea);
+            background-size: 200% 100%;
+            animation: gradientShift 3s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+        }
+
+        .header .subtitle {
+            font-size: 1.3rem;
+            color: #718096;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        .price-section {
+            background: linear-gradient(135deg, #48bb78, #38a169);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .price-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            margin: 10px;
+            font-size: 1.1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin: 40px 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h2::before {
+            content: '';
+            width: 5px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 3px;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            color: #4a5568;
+            margin: 30px 0 15px 0;
+            font-weight: 600;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #f7fafc, #edf2f7);
+            border-left: 5px solid #667eea;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-card h4 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-card .description {
+            color: #4a5568;
+            margin-bottom: 15px;
+        }
+
+        .feature-card .features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-card .features li {
+            margin: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #4a5568;
+        }
+
+        .feature-card .features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #48bb78;
+            font-weight: bold;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .metric-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .metric-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .testimonial {
+            background: linear-gradient(135deg, #f7fafc, #edf2f7);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial .quote {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #4a5568;
+            margin-bottom: 20px;
+        }
+
+        .testimonial .author {
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .guarantee {
+            background: linear-gradient(135deg, #48bb78, #38a169);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .guarantee h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .guarantee .guarantee-text {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header, .content {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header fade-in">
+            <h1><i class="fas fa-calendar-alt"></i> Social Media Content Calendar</h1>
+            <p class="subtitle">365-Day Strategy Guide to Transform Your Social Media Presence</p>
+            
+            <div class="price-section">
+                <div class="price">$25</div>
+                <div class="price-subtitle">Complete 365-Day Content Strategy with Templates</div>
+                <div class="price-subtitle">Value: $500+ | ROI: 400%+ in 30 days</div>
+                <a href="payment-system.html" class="btn btn-primary">
+                    <i class="fas fa-shopping-cart"></i> Get Instant Access
+                </a>
+                <a href="#features" class="btn btn-secondary">
+                    <i class="fas fa-info-circle"></i> Learn More
+                </a>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="content fade-in" id="features">
+            <h2><i class="fas fa-star"></i> What You'll Get</h2>
+            <p>Complete social media transformation system with 365 days of content ideas, strategies, and templates.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h4><i class="fas fa-calendar-check"></i> 365-Day Content Calendar</h4>
+                    <div class="description">Complete year-long content strategy with daily themes, topics, and ideas.</div>
+                    <ul class="features">
+                        <li>Daily content themes and topics</li>
+                        <li>Seasonal content strategies</li>
+                        <li>Holiday and event content</li>
+                        <li>Trending topic integration</li>
+                        <li>Content variety and balance</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h4><i class="fas fa-users"></i> Platform-Specific Strategies</h4>
+                    <div class="description">Tailored strategies for LinkedIn, Instagram, Facebook, Twitter, TikTok, and YouTube.</div>
+                    <ul class="features">
+                        <li>LinkedIn professional content</li>
+                        <li>Instagram visual strategies</li>
+                        <li>Facebook community building</li>
+                        <li>Twitter engagement tactics</li>
+                        <li>TikTok viral content ideas</li>
+                        <li>YouTube educational content</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h4><i class="fas fa-palette"></i> Content Creation Templates</h4>
+                    <div class="description">Ready-to-use templates for posts, captions, graphics, and videos.</div>
+                    <ul class="features">
+                        <li>Post template frameworks</li>
+                        <li>Caption templates and formulas</li>
+                        <li>Visual content templates</li>
+                        <li>Video content templates</li>
+                        <li>Story content templates</li>
+                        <li>Live content templates</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h4><i class="fas fa-hashtag"></i> Hashtag Strategies</h4>
+                    <div class="description">Complete hashtag research and implementation strategies for maximum reach.</div>
+                    <ul class="features">
+                        <li>Hashtag research methods</li>
+                        <li>Platform-specific hashtag strategies</li>
+                        <li>Trending hashtag integration</li>
+                        <li>Niche hashtag identification</li>
+                        <li>Hashtag performance tracking</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h4><i class="fas fa-heart"></i> Engagement Tactics</h4>
+                    <div class="description">Proven strategies to increase engagement and build loyal communities.</div>
+                    <ul class="features">
+                        <li>Comment response templates</li>
+                        <li>Community building strategies</li>
+                        <li>User-generated content campaigns</li>
+                        <li>Live content strategies</li>
+                        <li>Engagement optimization</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h4><i class="fas fa-chart-line"></i> Analytics & Optimization</h4>
+                    <div class="description">Complete analytics setup and optimization strategies for maximum ROI.</div>
+                    <ul class="features">
+                        <li>Analytics setup and tracking</li>
+                        <li>Performance metrics and KPIs</li>
+                        <li>Content optimization strategies</li>
+                        <li>ROI calculation and tracking</li>
+                        <li>Continuous improvement methods</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Success Metrics</h3>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-number">400%+</div>
+                    <div class="metric-label">ROI in 30 Days</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">200%+</div>
+                    <div class="metric-label">Engagement Increase</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">365</div>
+                    <div class="metric-label">Days of Content</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">30 Days</div>
+                    <div class="metric-label">Implementation Time</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonials -->
+        <div class="content fade-in">
+            <h2><i class="fas fa-quote-left"></i> Success Stories</h2>
+            
+            <div class="testimonial">
+                <div class="quote">"This content calendar transformed my social media presence completely. I went from 1,000 to 10,000 followers in 90 days and increased my engagement by 500%. The templates and strategies are incredible!"</div>
+                <div class="author">- Sarah Johnson, CEO of TechStart Solutions</div>
+            </div>
+
+            <div class="testimonial">
+                <div class="quote">"The 365-day content calendar saved me hours of planning every week. I now have a complete content strategy that drives real business results. My social media ROI increased by 400%!"</div>
+                <div class="author">- Mike Chen, Entrepreneur and Consultant</div>
+            </div>
+
+            <div class="testimonial">
+                <div class="quote">"Finally, a comprehensive social media strategy that actually works! The platform-specific strategies and templates helped me build a loyal community and generate significant revenue from social media."</div>
+                <div class="author">- Lisa Rodriguez, Small Business Owner</div>
+            </div>
+        </div>
+
+        <!-- Guarantee -->
+        <div class="guarantee fade-in">
+            <h3><i class="fas fa-shield-alt"></i> 30-Day Money-Back Guarantee</h3>
+            <div class="guarantee-text">
+                Try our Social Media Content Calendar risk-free for 30 days. If you don't see a 200%+ engagement improvement, we'll refund your money, no questions asked.
+            </div>
+        </div>
+
+        <!-- Final CTA -->
+        <div class="content fade-in">
+            <h2><i class="fas fa-rocket"></i> Ready to Transform Your Social Media?</h2>
+            <p>Join thousands of entrepreneurs who have transformed their social media presence with our complete content calendar.</p>
+            
+            <div style="text-align: center; margin: 40px 0;">
+                <a href="payment-system.html" class="btn btn-primary" style="font-size: 1.3rem; padding: 20px 50px;">
+                    <i class="fas fa-shopping-cart"></i> Get Instant Access - $25
+                </a>
+            </div>
+            
+            <div style="text-align: center; color: #718096; font-size: 0.9rem;">
+                <i class="fas fa-lock"></i> Secure payment • Instant access • 30-day guarantee
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add some dynamic effects
+        document.querySelectorAll('.feature-card, .metric-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>

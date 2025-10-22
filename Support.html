@@ -1,0 +1,363 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - AeroVista</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+        <nav class="navigation" role="navigation" aria-label="Main navigation">
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="Individual-Products.html">Products</a>
+                <a href="Product-Bundles.html">Bundles</a>
+                <a href="Support.html">Support</a>
+            </div>
+        </nav><a href="#main-content" style="position: absolute; top: -40px; left: 6px; background: #000; color: #fff; padding: 8px; text-decoration: none; z-index: 1000;" onfocus="this.style.top=`6px`" onblur="this.style.top=`-40px`">Skip to main content</a>
+    <div class="container" id="main-content">
+        <div class="header">
+            <h1>Support Center</h1>
+            <p>Get help with your AI implementation and automation journey</p>
+        </div>
+
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> > <a href="Support.html">Support</a>
+        </div>
+
+        <div class="navigation">
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="Individual-Products.html">Individual Products</a>
+                <a href="Product-Bundles.html">Product Bundles</a>
+                <a href="Product-Comparison.html">Compare Products</a>
+                <a href="Support.html">Support</a>
+            </div>
+        </div>
+
+        <div class="support-hero">
+            <div class="support-hero-content">
+                <h2>How Can We Help You?</h2>
+                <p>Our support team is here to ensure your success with AI implementation and automation.</p>
+                <div class="support-stats">
+                    <div class="support-stat">
+                        <div class="stat-icon"><i class="fas fa-clock"></i></div>
+                        <div class="stat-info">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Support Available</div>
+                        </div>
+                    </div>
+                    <div class="support-stat">
+                        <div class="stat-icon"><i class="fas fa-headset"></i></div>
+                        <div class="stat-info">
+                            <div class="stat-number">2hrs</div>
+                            <div class="stat-label">Average Response</div>
+                        </div>
+                    </div>
+                    <div class="support-stat">
+                        <div class="stat-icon"><i class="fas fa-star"></i></div>
+                        <div class="stat-info">
+                            <div class="stat-number">95%</div>
+                            <div class="stat-label">Satisfaction Rate</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="support-options">
+            <h2>Get Support</h2>
+            <div class="support-grid">
+                <div class="support-card">
+                    <div class="support-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email Support</h3>
+                    <p>Get detailed help via email with our expert support team.</p>
+                    <div class="support-details">
+                        <p><strong>Response Time:</strong> Within 2 hours</p>
+                        <p><strong>Availability:</strong> 24/7</p>
+                        <p><strong>Best For:</strong> Detailed questions and documentation</p>
+                    </div>
+                    <a href="mailto:support@aerovista.com" class="btn btn-primary">Send Email</a>
+                </div>
+
+                <div class="support-card">
+                    <div class="support-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Phone Support</h3>
+                    <p>Speak directly with our AI implementation experts.</p>
+                    <div class="support-details">
+                        <p><strong>Hours:</strong> Mon-Fri, 9 AM - 6 PM EST</p>
+                        <p><strong>Phone:</strong> (555) 123-4567</p>
+                        <p><strong>Best For:</strong> Complex issues and consultations</p>
+                    </div>
+                    <a href="tel:5551234567" class="btn btn-primary">Call Now</a>
+                </div>
+
+                <div class="support-card">
+                    <div class="support-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Live Chat</h3>
+                    <p>Get instant help with our AI-powered chat assistant.</p>
+                    <div class="support-details">
+                        <p><strong>Availability:</strong> 24/7</p>
+                        <p><strong>Response:</strong> Instant</p>
+                        <p><strong>Best For:</strong> Quick questions</p>
+                    </div>
+                    <a href="#" class="btn btn-primary" onclick="openChat()">Start Chat</a>
+                </div>
+
+                <div class="support-card">
+                    <div class="support-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Video Consultation</h3>
+                    <p>Schedule a personalized consultation with our experts.</p>
+                    <div class="support-details">
+                        <p><strong>Duration:</strong> 30-60 minutes</p>
+                        <p><strong>Availability:</strong> By appointment</p>
+                        <p><strong>Best For:</strong> Implementation planning</p>
+                    </div>
+                    <a href="#" class="btn btn-primary" onclick="scheduleConsultation()">Schedule Call</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-category">
+                    <h3>Getting Started</h3>
+                    <div class="faq-items">
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h4>How do I get started with AI implementation?</h4>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Start with our AI Implementation Checklist. It provides a step-by-step guide to implementing AI in your business, from planning to execution. The guide includes 50+ actionable steps and takes about 30 days to complete.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h4>Which product should I choose first?</h4>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>If you're new to AI, start with the AI Tools Starter Kit ($37). If you're ready to implement, get the AI Implementation Checklist ($47). For maximum value, consider our Business Automation Suite ($197) which includes multiple products.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h4>Do I need technical skills to use these products?</h4>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>No technical skills required! Our guides are designed for business owners and managers. We provide step-by-step instructions, tool recommendations, and implementation support to make AI accessible to everyone.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-category">
+                    <h3>Implementation</h3>
+                    <div class="faq-items">
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h4>How long does implementation take?</h4>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Implementation time varies by product: AI Tools Starter Kit (14 days), AI Implementation Checklist (30 days), Email Marketing Automation (30 days), Social Media Content Calendar (30 days), Business Process Automation (90 days).</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h4>What if I get stuck during implementation?</h4>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>We provide comprehensive support including email support, phone consultations, and video calls. Our team is available 24/7 to help you overcome any challenges during implementation.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h4>Can I get a refund if I'm not satisfied?</h4>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes! We offer a 30-day money-back guarantee on all products. If you're not completely satisfied, contact our support team for a full refund.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-category">
+                    <h3>Technical Support</h3>
+                    <div class="faq-items">
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h4>What if I need help with specific AI tools?</h4>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Our AI Tools Starter Kit includes detailed reviews and setup guides for 100+ AI tools. We also provide ongoing support for tool selection and implementation.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h4>Do you provide training for my team?</h4>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes! We offer team training sessions, workshops, and ongoing support to ensure your entire team can effectively use AI tools and automation.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h4>Can you help with custom automation workflows?</h4>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Absolutely! Our Business Process Automation guide includes custom workflow templates, and our team can help you design automation solutions for your specific business needs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="resources-section">
+            <h2>Additional Resources</h2>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Knowledge Base</h3>
+                    <p>Comprehensive guides, tutorials, and best practices for AI implementation.</p>
+                    <a href="#" class="btn btn-secondary">Browse Knowledge Base</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community Forum</h3>
+                    <p>Connect with other users, share experiences, and get peer support.</p>
+                    <a href="#" class="btn btn-secondary">Join Community</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <h3>Video Tutorials</h3>
+                    <p>Step-by-step video guides for implementing AI in your business.</p>
+                    <a href="#" class="btn btn-secondary">Watch Tutorials</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-calendar"></i>
+                    </div>
+                    <h3>Webinars</h3>
+                    <p>Join our weekly webinars on AI implementation and automation.</p>
+                    <a href="#" class="btn btn-secondary">Register for Webinars</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <h2>Contact Information</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <p>support@aerovista.com</p>
+                    <p>Response within 2 hours</p>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Phone</h3>
+                    <p>(555) 123-4567</p>
+                    <p>Mon-Fri, 9 AM - 6 PM EST</p>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Address</h3>
+                    <p>123 AI Street<br>Tech City, TC 12345</p>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Business Hours</h3>
+                    <p>Monday - Friday: 9 AM - 6 PM EST<br>Saturday: 10 AM - 4 PM EST</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Still Need Help?</h2>
+            <p>Our support team is ready to help you succeed with AI implementation.</p>
+            <div class="cta-buttons">
+                <a href="mailto:support@aerovista.com" class="btn btn-primary">Contact Support</a>
+                <a href="Product-Comparison.html" class="btn btn-secondary">Browse Products</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function openChat() {
+            alert('Live chat feature coming soon! For now, please use email or phone support.');
+        }
+
+        function scheduleConsultation() {
+            alert('Consultation scheduling coming soon! Please contact us via email or phone to schedule.');
+        }
+
+        // FAQ Toggle functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const answer = faqItem.querySelector('.faq-answer');
+                const icon = question.querySelector('i');
+                
+                faqItem.classList.toggle('active');
+                
+                if (faqItem.classList.contains('active')) {
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    icon.style.transform = 'rotate(180deg)';
+                } else {
+                    answer.style.maxHeight = '0';
+                    icon.style.transform = 'rotate(0deg)';
+                }
+            });
+        });
+    </script>
+<script src="performance.js"></script></body>
+</html>
+
+

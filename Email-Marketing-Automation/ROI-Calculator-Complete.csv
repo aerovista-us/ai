@@ -1,0 +1,31 @@
+Metric,Current Value,Target Value,Improvement,Impact
+List Size,1000,5000,400%,High
+Open Rate,12%,25%,108%,High
+Click Rate,2%,5%,150%,High
+Conversion Rate,1%,3%,200%,High
+Average Order Value,50,75,50%,Medium
+Email Frequency,4,8,100%,Medium
+Monthly Revenue,240,3000,1150%,High
+Annual Revenue,2880,36000,1150%,High
+Cost per Email,0.02,0.01,50%,Medium
+Total Monthly Cost,80,400,400%,Medium
+Net Monthly Profit,160,2600,1525%,High
+ROI,200%,650%,225%,High
+Customer Lifetime Value,50,150,200%,High
+Churn Rate,5%,2%,60%,High
+Referral Rate,5%,15%,200%,High
+Social Media Engagement,2%,8%,300%,High
+Brand Awareness,20%,60%,200%,High
+Customer Satisfaction,3.5,4.5,29%,Medium
+Support Tickets,50,20,60%,Medium
+Time Saved (hours/week),0,10,1000%,High
+Automation Efficiency,0%,80%,800%,High
+Personalization Level,0%,70%,700%,High
+Segmentation Quality,Basic,Advanced,300%,High
+Content Quality,Basic,Professional,400%,High
+Delivery Rate,95%,99%,4%,Medium
+Compliance Score,70%,95%,36%,Medium
+Data Quality,60%,90%,50%,Medium
+Integration Level,Basic,Advanced,400%,High
+Reporting Accuracy,70%,95%,36%,Medium
+Team Productivity,100%,150%,50%,Medium

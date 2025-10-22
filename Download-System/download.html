@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeroVista - Product Downloads</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            color: #2d3748;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+        }
+
+        .download-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            margin-bottom: 30px;
+        }
+
+        .download-item {
+            background: linear-gradient(135deg, #f7fafc, #edf2f7);
+            border-left: 5px solid #667eea;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .download-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .file-icon {
+            font-size: 3rem;
+            color: #667eea;
+            min-width: 60px;
+        }
+
+        .file-info {
+            flex: 1;
+        }
+
+        .file-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 5px;
+        }
+
+        .file-description {
+            color: #4a5568;
+            margin-bottom: 10px;
+        }
+
+        .file-size {
+            font-size: 0.9rem;
+            color: #718096;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .success-message {
+            background: #48bb78;
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .instructions {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .instructions h3 {
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+
+        .instructions ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .instructions li {
+            margin: 10px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #4a5568;
+        }
+
+        .instructions li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #48bb78;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🎉 Welcome to AeroVista!</h1>
+            <p style="font-size: 1.2rem; color: #718096;">Your AI Implementation Checklist is ready for download.</p>
+        </div>
+
+        <!-- Success Message -->
+        <div class="success-message">
+            ✅ Purchase Confirmed! Your products are ready for download.
+        </div>
+
+        <!-- Download Section -->
+        <div class="download-section">
+            <h2 style="font-size: 2rem; font-weight: 700; color: #2d3748; margin-bottom: 30px; text-align: center;">
+                📁 Your Product Files
+            </h2>
+
+            <!-- Main Product -->
+            <div class="download-item">
+                <i class="fas fa-file-pdf file-icon"></i>
+                <div class="file-info">
+                    <div class="file-name">AI Implementation Checklist.pdf</div>
+                    <div class="file-description">Complete 15,000+ word guide with 50+ actionable steps, 5 implementation phases, and professional formatting.</div>
+                    <div class="file-size">2.3 MB • Professional PDF format</div>
+                </div>
+                <a href="../AI-Implementation-Checklist/AI-Implementation-Checklist.pdf" class="download-btn" download>
+                    <i class="fas fa-download"></i> Download PDF
+                </a>
+            </div>
+
+            <!-- Quick Start Guide -->
+            <div class="download-item">
+                <i class="fas fa-file-alt file-icon"></i>
+                <div class="file-info">
+                    <div class="file-name">Quick Start Guide.pdf</div>
+                    <div class="file-description">Step-by-step getting started guide to begin your AI implementation immediately.</div>
+                    <div class="file-size">1.1 MB • Getting started guide</div>
+                </div>
+                <a href="../AI-Implementation-Checklist/Quick-Start-Guide.pdf" class="download-btn" download>
+                    <i class="fas fa-download"></i> Download Guide
+                </a>
+            </div>
+
+            <!-- ROI Calculator -->
+            <div class="download-item">
+                <i class="fas fa-file-excel file-icon"></i>
+                <div class="file-info">
+                    <div class="file-name">ROI Calculator.csv</div>
+                    <div class="file-description">Track your potential savings and calculate return on investment for your AI implementation.</div>
+                    <div class="file-size">0.8 MB • Excel-compatible spreadsheet</div>
+                </div>
+                <a href="../AI-Implementation-Checklist/ROI-Calculator.csv" class="download-btn" download>
+                    <i class="fas fa-download"></i> Download Calculator
+                </a>
+            </div>
+
+            <!-- Implementation Timeline -->
+            <div class="download-item">
+                <i class="fas fa-file-pdf file-icon"></i>
+                <div class="file-info">
+                    <div class="file-name">Implementation Timeline.pdf</div>
+                    <div class="file-description">12-week implementation plan with milestones, deadlines, and success metrics.</div>
+                    <div class="file-size">0.9 MB • 12-week implementation plan</div>
+                </div>
+                <a href="../AI-Implementation-Checklist/Implementation-Timeline.pdf" class="download-btn" download>
+                    <i class="fas fa-download"></i> Download Timeline
+                </a>
+            </div>
+
+            <!-- Markdown Version -->
+            <div class="download-item">
+                <i class="fas fa-file-code file-icon"></i>
+                <div class="file-info">
+                    <div class="file-name">AI Implementation Checklist.md</div>
+                    <div class="file-description">Markdown format for easy editing, customization, and integration with your existing systems.</div>
+                    <div class="file-size">1.2 MB • Markdown format for editing</div>
+                </div>
+                <a href="../AI-Implementation-Checklist/AI-Implementation-Checklist.md" class="download-btn" download>
+                    <i class="fas fa-download"></i> Download Markdown
+                </a>
+            </div>
+        </div>
+
+        <!-- Instructions -->
+        <div class="instructions">
+            <h3>📋 Getting Started Instructions</h3>
+            <ul>
+                <li>Start with the Quick Start Guide to understand the basics</li>
+                <li>Read the main AI Implementation Checklist for comprehensive guidance</li>
+                <li>Use the ROI Calculator to track your potential savings</li>
+                <li>Follow the Implementation Timeline for structured progress</li>
+                <li>Customize the Markdown version for your specific needs</li>
+                <li>Join our community forum for additional support</li>
+            </ul>
+        </div>
+
+        <!-- Support Information -->
+        <div class="download-section">
+            <h2 style="font-size: 1.8rem; font-weight: 700; color: #2d3748; margin-bottom: 20px; text-align: center;">
+                🛠️ Need Help?
+            </h2>
+            <div style="text-align: center; color: #4a5568;">
+                <p style="margin-bottom: 15px;">We're here to support your success!</p>
+                <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+                    <div>
+                        <strong>📧 Email Support:</strong><br>
+                        support@aerovista.com
+                    </div>
+                    <div>
+                        <strong>📞 Phone Support:</strong><br>
+                        (555) 123-4567
+                    </div>
+                    <div>
+                        <strong>💬 Live Chat:</strong><br>
+                        Available on our website
+                    </div>
+                    <div>
+                        <strong>👥 Community:</strong><br>
+                        Join our forum
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Track downloads
+        document.querySelectorAll('.download-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Track download in analytics
+                console.log('Download started:', this.href);
+                
+                // Show success message
+                const successMsg = document.createElement('div');
+                successMsg.className = 'success-message';
+                successMsg.innerHTML = '✅ Download started! Check your downloads folder.';
+                successMsg.style.position = 'fixed';
+                successMsg.style.top = '20px';
+                successMsg.style.right = '20px';
+                successMsg.style.zIndex = '1000';
+                document.body.appendChild(successMsg);
+                
+                setTimeout(() => {
+                    successMsg.remove();
+                }, 3000);
+            });
+        });
+
+        // Check if files exist and show appropriate messages
+        document.addEventListener('DOMContentLoaded', function() {
+            // This would normally check if files exist on the server
+            console.log('Download page loaded');
+        });
+    </script>
+</body>
+</html>

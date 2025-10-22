@@ -1,0 +1,527 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeroVista Site Map - Visual Overview</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .site-map-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .site-map-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+        }
+        
+        .site-structure {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .structure-section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .structure-section.homepage {
+            border-left-color: #28a745;
+        }
+        
+        .structure-section.traffic {
+            border-left-color: #E4405F;
+        }
+        
+        .structure-section.products {
+            border-left-color: #0077B5;
+        }
+        
+        .structure-section.support {
+            border-left-color: #f39c12;
+        }
+        
+        .structure-section.reports {
+            border-left-color: #6c757d;
+        }
+        
+        .page-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        
+        .page-item {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 3px solid #667eea;
+            transition: all 0.3s ease;
+        }
+        
+        .page-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        
+        .page-item.homepage {
+            border-left-color: #28a745;
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+        }
+        
+        .page-item.traffic {
+            border-left-color: #E4405F;
+            background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+        }
+        
+        .page-item.product {
+            border-left-color: #0077B5;
+            background: linear-gradient(135deg, #cce5ff 0%, #b3d9ff 100%);
+        }
+        
+        .page-item.support {
+            border-left-color: #f39c12;
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+        }
+        
+        .page-item.report {
+            border-left-color: #6c757d;
+            background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+        }
+        
+        .page-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .page-description {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .page-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .page-link {
+            background: #667eea;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+        
+        .page-link:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+        }
+        
+        .traffic-flow {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .flow-arrow {
+            font-size: 2rem;
+            color: #667eea;
+            margin: 20px 0;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .metric-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #667eea;
+        }
+        
+        .metric-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .metric-label {
+            color: #666;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        
+        .navigation-flow {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .flow-step {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .step-number {
+            background: #667eea;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 20px;
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        .step-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .step-description {
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+<a href="#main-content" class="sr-only" style="position: absolute; top: -40px; left: 6px; background: #000; color: #fff; padding: 8px; text-decoration: none; z-index: 1000;" onfocus="this.style.top=`6px`" onblur="this.style.top=`-40px`">Skip to main content</a>
+        <nav class="navigation" role="navigation" aria-label="Main navigation">
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="Individual-Products.html">Products</a>
+                <a href="Product-Bundles.html">Bundles</a>
+                <a href="Product-Comparison.html">Compare</a>
+                <a href="Support.html">Support</a>
+            </div>
+        </nav>
+    <div class="site-map-container">
+        <div class="site-map-header">
+            <h1>ðŸ—ºï¸ AeroVista Site Map - Visual Overview</h1>
+            <p>Complete site structure and navigation flow for optimal user experience</p>
+        </div>
+
+        <div class="metrics-grid">
+             <div class="metric-card">
+                 <div class="metric-number">21</div>
+                 <div class="metric-label">Total Pages</div>
+             </div>
+            <div class="metric-card">
+                <div class="metric-number">6</div>
+                <div class="metric-label">Product Categories</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-number">2</div>
+                <div class="metric-label">Traffic Source Landings</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-number">3</div>
+                <div class="metric-label">Support Pages</div>
+            </div>
+        </div>
+
+        <div class="site-structure">
+            <!-- Homepage Section -->
+            <div class="structure-section homepage">
+                <h2>ðŸ  Homepage & Entry Points</h2>
+                <ul class="page-list">
+                    <li class="page-item homepage">
+                        <div class="page-title">index.html</div>
+                        <div class="page-description">Main homepage with product overview and CTAs</div>
+                        <div class="page-links">
+                            <a href="index.html" class="page-link">View Page</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Traffic Source Landings -->
+            <div class="structure-section traffic">
+                <h2>ðŸ“± Traffic Source Landings</h2>
+                <ul class="page-list">
+                    <li class="page-item traffic">
+                        <div class="page-title">instagram-landing.html</div>
+                        <div class="page-description">Instagram-optimized landing for social media creators</div>
+                        <div class="page-links">
+                            <a href="instagram-landing.html" class="page-link">View Page</a>
+                        </div>
+                    </li>
+                    <li class="page-item traffic">
+                        <div class="page-title">linkedin-landing.html</div>
+                        <div class="page-description">LinkedIn-optimized landing for B2B professionals</div>
+                        <div class="page-links">
+                            <a href="linkedin-landing.html" class="page-link">View Page</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Product Pages -->
+            <div class="structure-section products">
+                <h2>ðŸ›ï¸ Product Pages</h2>
+                <ul class="page-list">
+                     <li class="page-item product">
+                         <div class="page-title">Product-Hub.html (Consolidated)</div>
+                         <div class="page-description">Central hub for all products and individual listings</div>
+                         <div class="page-links">
+                             <a href="Product-Hub.html" class="page-link">View Page</a>
+                         </div>
+                     </li>
+                    <li class="page-item product">
+                        <div class="page-title">Product-Bundles.html</div>
+                        <div class="page-description">Product bundles and package deals</div>
+                        <div class="page-links">
+                            <a href="Product-Bundles.html" class="page-link">View Page</a>
+                        </div>
+                    </li>
+                    <li class="page-item product">
+                        <div class="page-title">Product-Hub.html</div>
+                        <div class="page-description">Central hub for all products</div>
+                        <div class="page-links">
+                            <a href="Product-Hub.html" class="page-link">View Page</a>
+                        </div>
+                    </li>
+                    <li class="page-item product">
+                        <div class="page-title">Product-Comparison.html</div>
+                        <div class="page-description">Product comparison and recommendations</div>
+                        <div class="page-links">
+                            <a href="Product-Comparison.html" class="page-link">View Page</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Product Details -->
+            <div class="structure-section products">
+                <h2>ðŸ“‹ Product Details</h2>
+                <ul class="page-list">
+                    <li class="page-item product">
+                        <div class="page-title">AI-Implementation-Checklist.html</div>
+                        <div class="page-description">AI implementation guide and checklist</div>
+                        <div class="page-links">
+                            <a href="AI-Implementation-Checklist.html" class="page-link">View Page</a>
+                        </div>
+                    </li>
+                    <li class="page-item product">
+                        <div class="page-title">Email-Marketing-Automation.html</div>
+                        <div class="page-description">Email marketing automation tools</div>
+                        <div class="page-links">
+                            <a href="Email-Marketing-Automation.html" class="page-link">View Page</a>
+                        </div>
+                    </li>
+                    <li class="page-item product">
+                        <div class="page-title">Social-Media-Content-Calendar.html</div>
+                        <div class="page-description">Social media content planning tools</div>
+                        <div class="page-links">
+                            <a href="Social-Media-Content-Calendar.html" class="page-link">View Page</a>
+                        </div>
+                    </li>
+                    <li class="page-item product">
+                        <div class="page-title">Business-Process-Automation.html</div>
+                        <div class="page-description">Business process automation solutions</div>
+                        <div class="page-links">
+                            <a href="Business-Process-Automation.html" class="page-link">View Page</a>
+                        </div>
+                    </li>
+                    <li class="page-item product">
+                        <div class="page-title">Unified-Sales-Platform.html</div>
+                        <div class="page-description">Unified sales platform and CRM</div>
+                        <div class="page-links">
+                            <a href="Unified-Sales-Platform.html" class="page-link">View Page</a>
+                        </div>
+                    </li>
+                    <li class="page-item product">
+                        <div class="page-title">AI-Tools-Starter-Kit.html</div>
+                        <div class="page-description">AI tools starter kit for beginners</div>
+                        <div class="page-links">
+                            <a href="AI-Tools-Starter-Kit.html" class="page-link">View Page</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Support Pages -->
+            <div class="structure-section support">
+                <h2>ðŸ†˜ Support & Information</h2>
+                <ul class="page-list">
+                    <li class="page-item support">
+                        <div class="page-title">Support.html</div>
+                        <div class="page-description">Customer support and help center</div>
+                        <div class="page-links">
+                            <a href="Support.html" class="page-link">View Page</a>
+                        </div>
+                    </li>
+                    <li class="page-item support">
+                        <div class="page-title">Success-Stories.html</div>
+                        <div class="page-description">Customer success stories and testimonials</div>
+                        <div class="page-links">
+                            <a href="Success-Stories.html" class="page-link">View Page</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Reports -->
+            <div class="structure-section reports">
+                <h2>ðŸ“Š Reports & Analysis</h2>
+                <ul class="page-list">
+                    <li class="page-item report">
+                        <div class="page-title">FINAL_UX_ENHANCEMENT_REPORT.html</div>
+                        <div class="page-description">Final UX enhancement report</div>
+                        <div class="page-links">
+                            <a href="FINAL_UX_ENHANCEMENT_REPORT.html" class="page-link">View Page</a>
+                        </div>
+                    </li>
+                     <li class="page-item report">
+                         <div class="page-title">FINAL_UX_ENHANCEMENT_REPORT.html (Consolidated)</div>
+                         <div class="page-description">Comprehensive UX enhancement and analysis report</div>
+                         <div class="page-links">
+                             <a href="FINAL_UX_ENHANCEMENT_REPORT.html" class="page-link">View Page</a>
+                         </div>
+                     </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="traffic-flow">
+            <h2>ðŸ”„ User Journey Flow</h2>
+            <div class="flow-arrow">â¬‡ï¸</div>
+            <p>Traffic Source â†’ Landing Page â†’ Product Selection â†’ Purchase â†’ Support</p>
+        </div>
+
+        <div class="navigation-flow">
+            <h2>ðŸ§­ Navigation Flow</h2>
+            
+            <div class="flow-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <div class="step-title">Traffic Source Entry</div>
+                    <div class="step-description">Users arrive via Instagram, LinkedIn, Google Ads, Facebook, or organic search</div>
+                </div>
+            </div>
+            
+            <div class="flow-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <div class="step-title">Landing Page Experience</div>
+                    <div class="step-description">Traffic-source-specific landing pages provide targeted messaging and CTAs</div>
+                </div>
+            </div>
+            
+            <div class="flow-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <div class="step-title">Product Discovery</div>
+                    <div class="step-description">Users browse individual products, bundles, or use comparison tools</div>
+                </div>
+            </div>
+            
+            <div class="flow-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <div class="step-title">Product Details</div>
+                    <div class="step-description">Detailed product pages with features, pricing, and purchase options</div>
+                </div>
+            </div>
+            
+            <div class="flow-step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <div class="step-title">Purchase Decision</div>
+                    <div class="step-description">Clear CTAs and purchase buttons guide users to conversion</div>
+                </div>
+            </div>
+            
+            <div class="flow-step">
+                <div class="step-number">6</div>
+                <div class="step-content">
+                    <div class="step-title">Support & Success</div>
+                    <div class="step-description">Support pages and success stories help users succeed</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>ðŸ“ˆ Site Optimization Status</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                 <div class="metric-number">21</div>
+                 <div class="metric-label">Pages Audited</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">27</div>
+                    <div class="metric-label">Issues Found</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">100%</div>
+                    <div class="metric-label">Pages Have Issues</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">5</div>
+                    <div class="metric-label">Priority Fixes</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>ðŸ”§ Optimization Recommendations</h2>
+            <div class="landing-page-preview">
+                <h3>High Priority Fixes:</h3>
+                <ul>
+                    <li><strong>Remove Inline Styles:</strong> All 21 pages have inline styles that should be moved to external CSS</li>
+                    <li><strong>Add Navigation:</strong> 3 pages (instagram-landing, linkedin-landing, LANDING_PAGE_STRATEGY_REPORT) missing navigation</li>
+                    <li><strong>Improve Structure:</strong> Ensure consistent HTML structure across all pages</li>
+                    <li><strong>Enhance Accessibility:</strong> Add proper ARIA labels and semantic HTML</li>
+                    <li><strong>Optimize Performance:</strong> Implement lazy loading and optimize images</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+

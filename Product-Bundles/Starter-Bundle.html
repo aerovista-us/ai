@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeroVista Starter Bundle - Complete AI Business Suite</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            color: #2d3748;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #667eea);
+            background-size: 200% 100%;
+            animation: gradientShift 3s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+        }
+
+        .header .subtitle {
+            font-size: 1.3rem;
+            color: #718096;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        .bundle-section {
+            background: linear-gradient(135deg, #48bb78, #38a169);
+            color: white;
+            padding: 40px;
+            border-radius: 25px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .bundle-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .bundle-price {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .bundle-savings {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .bundle-description {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            padding: 20px 50px;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            margin: 10px;
+            font-size: 1.3rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        .content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin: 40px 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h2::before {
+            content: '';
+            width: 5px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 3px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .product-card {
+            background: linear-gradient(135deg, #f7fafc, #edf2f7);
+            border-left: 5px solid #667eea;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-card h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .product-card .price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #48bb78;
+            margin-bottom: 15px;
+        }
+
+        .product-card .description {
+            color: #4a5568;
+            margin-bottom: 20px;
+        }
+
+        .product-card .features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .product-card .features li {
+            margin: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #4a5568;
+        }
+
+        .product-card .features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #48bb78;
+            font-weight: bold;
+        }
+
+        .bonus-section {
+            background: linear-gradient(135deg, #f7fafc, #edf2f7);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            border-left: 5px solid #f56565;
+        }
+
+        .bonus-section h3 {
+            color: #2d3748;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .bonus-section .bonus-items {
+            list-style: none;
+            padding: 0;
+        }
+
+        .bonus-section .bonus-items li {
+            margin: 10px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #4a5568;
+        }
+
+        .bonus-section .bonus-items li::before {
+            content: '🎁';
+            position: absolute;
+            left: 0;
+        }
+
+        .guarantee {
+            background: linear-gradient(135deg, #48bb78, #38a169);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .guarantee h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .guarantee .guarantee-text {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header, .content {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header fade-in">
+            <h1><i class="fas fa-gift"></i> AeroVista Starter Bundle</h1>
+            <p class="subtitle">Complete AI Business Suite - Everything You Need to Transform Your Business</p>
+        </div>
+
+        <!-- Bundle Section -->
+        <div class="bundle-section fade-in">
+            <h2><i class="fas fa-star"></i> Starter Bundle</h2>
+            <div class="bundle-price">$79</div>
+            <div class="bundle-savings">Save $33 (Individual Value: $112)</div>
+            <div class="bundle-description">Perfect for small businesses starting their AI journey</div>
+            <a href="payment-system.html" class="btn btn-primary">
+                <i class="fas fa-shopping-cart"></i> Get Starter Bundle - $79
+            </a>
+        </div>
+
+        <!-- Products Section -->
+        <div class="content fade-in">
+            <h2><i class="fas fa-box"></i> What's Included</h2>
+            <p>Get all three essential products for your AI business transformation:</p>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <h3><i class="fas fa-robot"></i> AI Implementation Checklist</h3>
+                    <div class="price">$29 Value</div>
+                    <div class="description">Complete step-by-step guide to implementing AI in your business with 50+ actionable steps.</div>
+                    <ul class="features">
+                        <li>5 Implementation phases</li>
+                        <li>50+ actionable steps</li>
+                        <li>Time estimates for each step</li>
+                        <li>Tool recommendations</li>
+                        <li>ROI tracking metrics</li>
+                        <li>Professional PDF format</li>
+                        <li>Quick start guide</li>
+                        <li>ROI calculator spreadsheet</li>
+                    </ul>
+                </div>
+
+                <div class="product-card">
+                    <h3><i class="fas fa-envelope"></i> Email Marketing Automation</h3>
+                    <div class="price">$39 Value</div>
+                    <div class="description">Complete email marketing automation system with templates, sequences, and workflows.</div>
+                    <ul class="features">
+                        <li>Welcome email sequences</li>
+                        <li>Lead nurturing campaigns</li>
+                        <li>Abandoned cart recovery</li>
+                        <li>Re-engagement sequences</li>
+                        <li>Email templates (20+)</li>
+                        <li>Automation workflows</li>
+                        <li>Analytics templates</li>
+                        <li>Best practices guide</li>
+                    </ul>
+                </div>
+
+                <div class="product-card">
+                    <h3><i class="fas fa-tools"></i> AI Tools Starter Kit</h3>
+                    <div class="price">$19 Value</div>
+                    <div class="description">Curated collection of AI tools and resources for immediate business implementation.</div>
+                    <ul class="features">
+                        <li>50+ AI tools</li>
+                        <li>Tool comparisons</li>
+                        <li>Implementation guides</li>
+                        <li>Cost analysis</li>
+                        <li>ROI projections</li>
+                        <li>Support resources</li>
+                        <li>Tool recommendations</li>
+                        <li>Best practices guide</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bonus Section -->
+            <div class="bonus-section fade-in">
+                <h3><i class="fas fa-gift"></i> Bonus Items (Included Free)</h3>
+                <ul class="bonus-items">
+                    <li><strong>1-Hour Consultation Call</strong> - Personal guidance on implementation</li>
+                    <li><strong>Priority Email Support</strong> - Get help when you need it</li>
+                    <li><strong>30-Day Money-Back Guarantee</strong> - Risk-free trial</li>
+                    <li><strong>Exclusive Community Access</strong> - Connect with other entrepreneurs</li>
+                    <li><strong>Monthly Updates</strong> - New tools and strategies</li>
+                    <li><strong>Implementation Checklist</strong> - Step-by-step action plan</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Value Proposition -->
+        <div class="content fade-in">
+            <h2><i class="fas fa-chart-line"></i> Why Choose the Starter Bundle?</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin: 30px 0;">
+                <div style="background: linear-gradient(135deg, #f7fafc, #edf2f7); padding: 25px; border-radius: 15px; text-align: center;">
+                    <h4 style="color: #2d3748; margin-bottom: 15px; font-size: 1.5rem;">💰 Save Money</h4>
+                    <p style="color: #4a5568;">Get $112 worth of products for just $79 - save $33!</p>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #f7fafc, #edf2f7); padding: 25px; border-radius: 15px; text-align: center;">
+                    <h4 style="color: #2d3748; margin-bottom: 15px; font-size: 1.5rem;">⚡ Quick Start</h4>
+                    <p style="color: #4a5568;">Everything you need to start your AI journey immediately</p>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #f7fafc, #edf2f7); padding: 25px; border-radius: 15px; text-align: center;">
+                    <h4 style="color: #2d3748; margin-bottom: 15px; font-size: 1.5rem;">🎯 Complete Solution</h4>
+                    <p style="color: #4a5568;">AI implementation, email marketing, and tools all in one</p>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #f7fafc, #edf2f7); padding: 25px; border-radius: 15px; text-align: center;">
+                    <h4 style="color: #2d3748; margin-bottom: 15px; font-size: 1.5rem;">🚀 Fast Results</h4>
+                    <p style="color: #4a5568;">See results in 30 days with our proven system</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonials -->
+        <div class="content fade-in">
+            <h2><i class="fas fa-quote-left"></i> Success Stories</h2>
+            
+            <div style="background: linear-gradient(135deg, #f7fafc, #edf2f7); border-radius: 15px; padding: 30px; margin: 30px 0; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);">
+                <div style="font-size: 1.2rem; font-style: italic; color: #4a5568; margin-bottom: 20px;">
+                    "The Starter Bundle transformed my business completely. I implemented AI in 30 days, set up email marketing automation, and now I'm using 20+ AI tools daily. The ROI has been incredible - I've saved 25+ hours per week and increased revenue by 300%!"
+                </div>
+                <div style="font-weight: 600; color: #2d3748;">- Sarah Johnson, CEO of TechStart Solutions</div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, #f7fafc, #edf2f7); border-radius: 15px; padding: 30px; margin: 30px 0; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);">
+                <div style="font-size: 1.2rem; font-style: italic; color: #4a5568; margin-bottom: 20px;">
+                    "This bundle is worth every penny. The AI Implementation Checklist alone saved me months of research. The email marketing system increased my conversions by 200%. And the AI tools kit helped me automate 80% of my tasks. Best investment I've made!"
+                </div>
+                <div style="font-weight: 600; color: #2d3748;">- Mike Chen, Entrepreneur and Consultant</div>
+            </div>
+        </div>
+
+        <!-- Guarantee -->
+        <div class="guarantee fade-in">
+            <h3><i class="fas fa-shield-alt"></i> 30-Day Money-Back Guarantee</h3>
+            <div class="guarantee-text">
+                Try our Starter Bundle risk-free for 30 days. If you don't see a 250%+ ROI improvement, we'll refund your money, no questions asked.
+            </div>
+        </div>
+
+        <!-- Final CTA -->
+        <div class="content fade-in">
+            <h2><i class="fas fa-rocket"></i> Ready to Transform Your Business?</h2>
+            <p>Join thousands of entrepreneurs who have transformed their businesses with our complete AI suite.</p>
+            
+            <div style="text-align: center; margin: 40px 0;">
+                <a href="payment-system.html" class="btn btn-primary" style="font-size: 1.5rem; padding: 25px 60px;">
+                    <i class="fas fa-shopping-cart"></i> Get Starter Bundle - $79
+                </a>
+            </div>
+            
+            <div style="text-align: center; color: #718096; font-size: 0.9rem;">
+                <i class="fas fa-lock"></i> Secure payment • Instant access • 30-day guarantee
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add some dynamic effects
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
