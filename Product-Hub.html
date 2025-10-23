@@ -359,6 +359,331 @@
     </style>
 </head>
 <body>
+<!-- Hamburger Navigation Component -->
+<nav class="hamburger-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+        <div class="nav-header">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon">ðŸš€</span>
+                <span class="logo-text">AeroVista</span>
+            </a>
+            <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+        
+        <div class="nav-menu" id="nav-menu">
+            <div class="nav-section">
+                <h3 class="nav-section-title">ðŸ  Main Pages</h3>
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="Product-Hub.html" class="nav-link">Product Hub</a></li>
+                    <li><a href="SITE_MAP_VISUAL.html" class="nav-link">Site Map</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <h3 class="nav-section-title">ðŸ›ï¸ Products & Solutions</h3>
+                <ul class="nav-list">
+                    <li class="nav-item-with-sub">
+                        <a href="Product-Hub.html" class="nav-link">Individual Products</a>
+                        <span class="nav-description">Choose specific solutions for your needs</span>
+                        <ul class="nav-submenu">
+                            <li><a href="AI-Implementation-Checklist.html" class="nav-sublink">AI Implementation Checklist</a></li>
+                            <li><a href="Email-Marketing-Automation.html" class="nav-sublink">Email Marketing Automation</a></li>
+                            <li><a href="Social-Media-Content-Calendar.html" class="nav-sublink">Social Media Content Calendar</a></li>
+                            <li><a href="Business-Process-Automation.html" class="nav-sublink">Business Process Automation</a></li>
+                            <li><a href="Unified-Sales-Platform.html" class="nav-sublink">Unified Sales Platform</a></li>
+                            <li><a href="AI-Tools-Starter-Kit.html" class="nav-sublink">AI Tools Starter Kit</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item-with-sub">
+                        <a href="Product-Bundles.html" class="nav-link">Product Bundles</a>
+                        <span class="nav-description">Save up to 48% with strategic bundles</span>
+                        <ul class="nav-submenu">
+                            <li><a href="Product-Bundles.html#ai-starter" class="nav-sublink">AI Starter Pack</a></li>
+                            <li><a href="Product-Bundles.html#marketing-mastery" class="nav-sublink">Marketing Mastery</a></li>
+                            <li><a href="Product-Bundles.html#business-suite" class="nav-sublink">Business Automation Suite</a></li>
+                            <li><a href="Product-Bundles.html#complete-system" class="nav-sublink">Complete Business System</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item-with-sub">
+                        <a href="Premium-Tiers.html" class="nav-link">Premium Tiers</a>
+                        <span class="nav-description">Professional and Enterprise solutions</span>
+                        <ul class="nav-submenu">
+                            <li><a href="Professional-Tier/landing-page.html" class="nav-sublink">Professional Tier</a></li>
+                            <li><a href="Enterprise-Tier/landing-page.html" class="nav-sublink">Enterprise Tier</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <h3 class="nav-section-title">ðŸ” Compare & Research</h3>
+                <ul class="nav-list">
+                    <li><a href="Product-Comparison.html" class="nav-link">Compare Products</a></li>
+                    <li><a href="Success-Stories.html" class="nav-link">Success Stories</a></li>
+                    <li><a href="FINAL_UX_ENHANCEMENT_REPORT.html" class="nav-link">Product Analysis</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <h3 class="nav-section-title">ðŸ“± Traffic Sources</h3>
+                <ul class="nav-list">
+                    <li><a href="instagram-landing.html" class="nav-link">Instagram Landing</a></li>
+                    <li><a href="linkedin-landing.html" class="nav-link">LinkedIn Landing</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <h3 class="nav-section-title">ðŸ†˜ Support & Help</h3>
+                <ul class="nav-list">
+                    <li><a href="Support.html" class="nav-link">Support Center</a></li>
+                    <li><a href="Success-Stories.html" class="nav-link">Customer Success Stories</a></li>
+                    <li><a href="Support.html#faq" class="nav-link">FAQ</a></li>
+                    <li><a href="Support.html#contact" class="nav-link">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<style>
+/* Hamburger Navigation Styles */
+.hamburger-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.logo-icon {
+    font-size: 2rem;
+    margin-right: 10px;
+}
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.hamburger-line {
+    width: 100%;
+    height: 3px;
+    background: #333;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.hamburger[aria-expanded="true"] .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger[aria-expanded="true"] .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger[aria-expanded="true"] .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.nav-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: white;
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.nav-menu.active {
+    max-height: 1000px;
+}
+
+.nav-section {
+    padding: 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.nav-section:last-child {
+    border-bottom: none;
+}
+
+.nav-section-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #667eea;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item-with-sub {
+    margin-bottom: 15px;
+}
+
+.nav-link {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    background: #f8f9fa;
+    color: #667eea;
+    transform: translateX(5px);
+}
+
+.nav-description {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    margin: 5px 0 10px 15px;
+    font-style: italic;
+}
+
+.nav-submenu {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 20px;
+    border-left: 2px solid #f0f0f0;
+    padding-left: 15px;
+}
+
+.nav-sublink {
+    display: block;
+    padding: 8px 15px;
+    color: #666;
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    margin-bottom: 5px;
+}
+
+.nav-sublink:hover {
+    background: #f8f9fa;
+    color: #667eea;
+    transform: translateX(5px);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 0 15px;
+    }
+    
+    .nav-section {
+        padding: 15px;
+    }
+    
+    .nav-link {
+        padding: 12px 15px;
+    }
+    
+    .nav-sublink {
+        padding: 10px 15px;
+    }
+}
+
+/* Skip Link */
+.sr-only {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: #000;
+    color: #fff;
+    padding: 8px;
+    text-decoration: none;
+    z-index: 1000;
+}
+
+.sr-only:focus {
+    top: 6px;
+}
+</style>
+
+<script>
+// Hamburger Navigation JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', function() {
+            const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+            hamburger.setAttribute('aria-expanded', !isExpanded);
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!hamburger.contains(event.target) && !navMenu.contains(event.target)) {
+                hamburger.setAttribute('aria-expanded', 'false');
+                navMenu.classList.remove('active');
+            }
+        });
+        
+        // Close menu when clicking on a link
+        const navLinks = document.querySelectorAll('.nav-link, .nav-sublink');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.setAttribute('aria-expanded', 'false');
+                navMenu.classList.remove('active');
+            });
+        });
+    }
+});
+</script>
+
         <nav class="navigation" role="navigation" aria-label="Main navigation">
             <div class="nav-links">
                 <a href="index.html">Home</a>
@@ -575,6 +900,7 @@
 <script src="performance.js"></script>    <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
