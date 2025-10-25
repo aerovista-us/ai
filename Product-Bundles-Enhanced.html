@@ -1,0 +1,321 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Product Bundles - Complete Business Solutions | AeroVista</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; color: #333; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 20px; }
+        .header { text-align: center; color: white; margin-bottom: 50px; }
+        .header h1 { font-size: 3.5rem; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .header p { font-size: 1.4rem; opacity: 0.9; margin-bottom: 30px; }
+        .content { background: rgba(255, 255, 255, 0.95); border-radius: 25px; padding: 40px; margin-bottom: 30px; box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15); }
+        .bundle-card { background: white; border-radius: 20px; padding: 40px; margin: 30px 0; box-shadow: 0 15px 40px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
+        .bundle-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(135deg, #667eea, #764ba2); }
+        .bundle-card.featured { border: 3px solid #667eea; transform: scale(1.02); }
+        .bundle-card.featured::before { height: 8px; }
+        .bundle-title { font-size: 2.5rem; font-weight: 800; color: #667eea; margin-bottom: 15px; }
+        .bundle-price { font-size: 4rem; font-weight: 900; color: #667eea; margin: 20px 0; }
+        .bundle-savings { font-size: 1.2rem; color: #48bb78; font-weight: 600; margin-bottom: 20px; }
+        .bundle-description { font-size: 1.3rem; margin-bottom: 30px; line-height: 1.6; }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 30px 0; }
+        .product-item { background: #f8f9fa; padding: 20px; border-radius: 15px; border-left: 4px solid #667eea; }
+        .product-name { font-weight: 700; color: #333; margin-bottom: 5px; }
+        .product-price { color: #667eea; font-weight: 600; }
+        .btn { padding: 20px 40px; border: none; border-radius: 30px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; text-decoration: none; display: inline-block; margin: 20px 10px; font-size: 1.2rem; }
+        .btn-primary { background: linear-gradient(135deg, #667eea, #764ba2); color: white; }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 20px 40px rgba(102, 126, 234, 0.4); }
+        .btn-secondary { background: rgba(255,255,255,0.2); color: #333; border: 2px solid #e2e8f0; }
+        .btn-secondary:hover { background: rgba(255,255,255,0.3); }
+        .features { list-style: none; padding: 0; margin: 20px 0; }
+        .features li { margin: 10px 0; padding-left: 25px; position: relative; font-size: 1.1rem; }
+        .features li::before { content: ''; position: absolute; left: 0; color: #48bb78; font-weight: bold; }
+        .guarantee { background: #d4edda; padding: 20px; border-radius: 15px; margin: 30px 0; text-align: center; }
+        .guarantee h4 { color: #155724; margin-bottom: 10px; }
+        .guarantee p { color: #155724; margin: 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-gift"></i> Enhanced Product Bundles</h1>
+            <p>Complete business solutions with maximum savings and comprehensive coverage</p>
+        </div>
+
+        <div class="content">
+            <!-- Starter Business Bundle -->
+            <div class="bundle-card">
+                <h2 class="bundle-title"> Starter Business Bundle</h2>
+                <div class="bundle-price">$297</div>
+                <div class="bundle-savings">Save $200+ (Individual Value: $500+)</div>
+                <div class="bundle-description">Perfect for new businesses and entrepreneurs. Get the essential tools to start and grow your business with confidence.</div>
+                
+                <div class="products-grid">
+                    <div class="product-item">
+                        <div class="product-name">AI Implementation Checklist</div>
+                        <div class="product-price">$29</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-name">Email Marketing Automation</div>
+                        <div class="product-price">$39</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-name">AI Tools Starter Kit</div>
+                        <div class="product-price">$19</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-name">Social Media Content Calendar</div>
+                        <div class="product-price">$27</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-name">Business Process Automation</div>
+                        <div class="product-price">$47</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-name">Email Templates (Starter)</div>
+                        <div class="product-price">$97</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-name">Lead Generation System (Starter)</div>
+                        <div class="product-price">$97</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-name">Brand Asset Management (Starter)</div>
+                        <div class="product-price">$67</div>
+                    </div>
+                </div>
+
+                <ul class="features">
+                    <li>Complete business automation system</li>
+                    <li>Professional email templates and automation</li>
+                    <li>Social media content for 365 days</li>
+                    <li>Lead generation and brand management tools</li>
+                    <li>60-day implementation support</li>
+                    <li>Email support included</li>
+                </ul>
+
+                <div style="text-align: center;">
+                    <a href="#" class="btn btn-primary">Get Starter Bundle - $297</a>
+                    <a href="Product-Comparison.html" class="btn btn-secondary">Compare Bundles</a>
+                </div>
+            </div>
+
+            <!-- Professional Business Bundle -->
+            <div class="bundle-card featured">
+                <h2 class="bundle-title"> Professional Business Bundle</h2>
+                <div class="bundle-price">$997</div>
+                <div class="bundle-savings">Save $800+ (Individual Value: $1,800+)</div>
+                <div class="bundle-description">Comprehensive business solution for established companies. Advanced tools for growth, automation, and optimization.</div>
+                
+                <div class="products-grid">
+                    <div class="product-item">
+                        <div class="product-name">All 5 Core Products (Professional)</div>
+                        <div class="product-price">$161</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-name">Email Templates (Professional)</div>
+                        <div class="product-price">$197</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-name">Automation Workflows (Professional)</div>
+                        <div class="product-price">$297</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-name">Business Intelligence Dashboard (Professional)</div>
+                        <div class="product-price">$297</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-name">Lead Generation System (Professional)</div>
+                        <div class="product-price">$197</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-name">CRM System (Professional)</div>
+                        <div class="product-price">$297</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-name">Social Media Automation (Professional)</div>
+                        <div class="product-price">$197</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-name">Sales Funnel Builder (Professional)</div>
+                        <div class="product-price">$197</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-name">Financial Management Suite (Professional)</div>
+                        <div class="product-price">$197</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-name">Brand Asset Management (Professional)</div>
+                        <div class="product-price">$127</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-name">Security & Compliance Toolkit (Professional)</div>
+                        <div class="product-price">$297</div>
+                    </div>
+                </div>
+
+                <ul class="features">
+                    <li>Complete business automation and optimization suite</li>
+                    <li>Advanced analytics and business intelligence</li>
+                    <li>Professional email templates and automation</li>
+                    <li>Complete CRM and lead generation system</li>
+                    <li>Social media automation and content management</li>
+                    <li>Financial management and brand asset tools</li>
+                    <li>Security and compliance protection</li>
+                    <li>90-day implementation support</li>
+                    <li>Priority email support</li>
+                </ul>
+
+                <div style="text-align: center;">
+                    <a href="#" class="btn btn-primary">Get Professional Bundle - $997</a>
+                    <a href="Product-Comparison.html" class="btn btn-secondary">Compare Bundles</a>
+                </div>
+            </div>
+
+            <!-- Enterprise Business Bundle -->
+            <div class="bundle-card">
+                <h2 class="bundle-title"> Enterprise Business Bundle</h2>
+                <div class="bundle-price">$2,497</div>
+                <div class="bundle-savings">Save $2,000+ (Individual Value: $4,500+)</div>
+                <div class="bundle-description">Complete enterprise solution for large businesses. All tools with enterprise features, custom development, and dedicated support.</div>
+                
+                <div class="products-grid">
+                    <div class="product-item">
+                        <div class="product-name">All 5 Core Products (Enterprise)</div>
+                        <div class="product-price">$161</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-name">Email Templates (Enterprise)</div>
+                        <div class="product-price">$297</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-name">Automation Workflows (Enterprise)</div>
+                        <div class="product-price">$497</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-name">Business Intelligence Dashboard (Enterprise)</div>
+                        <div class="product-price">$497</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-name">Lead Generation System (Enterprise)</div>
+                        <div class="product-price">$297</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-name">CRM System (Enterprise)</div>
+                        <div class="product-price">$597</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-name">Social Media Automation (Enterprise)</div>
+                        <div class="product-price">$397</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-name">Sales Funnel Builder (Enterprise)</div>
+                        <div class="product-price">$397</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-name">Financial Management Suite (Enterprise)</div>
+                        <div class="product-price">$397</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-name">Brand Asset Management (Enterprise)</div>
+                        <div class="product-price">$197</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-name">Security & Compliance Toolkit (Enterprise)</div>
+                        <div class="product-price">$597</div>
+                    </div>
+                </div>
+
+                <ul class="features">
+                    <li>Complete enterprise business solution</li>
+                    <li>Advanced analytics and business intelligence</li>
+                    <li>Enterprise-grade automation and workflows</li>
+                    <li>Complete CRM and lead generation system</li>
+                    <li>Advanced social media automation</li>
+                    <li>Enterprise financial management</li>
+                    <li>Complete security and compliance protection</li>
+                    <li>Custom development and integration</li>
+                    <li>120-day implementation support</li>
+                    <li>Phone support + dedicated consultation</li>
+                </ul>
+
+                <div style="text-align: center;">
+                    <a href="#" class="btn btn-primary">Get Enterprise Bundle - $2,497</a>
+                    <a href="Product-Comparison.html" class="btn btn-secondary">Compare Bundles</a>
+                </div>
+            </div>
+
+            <!-- Specialized Bundles -->
+            <h2 style="margin-top: 50px; margin-bottom: 30px; text-align: center; color: #667eea;"><i class="fas fa-star"></i> Specialized Business Bundles</h2>
+            
+            <div class="products-grid">
+                <div class="bundle-card">
+                    <h3 class="bundle-title"> Marketing & Communication Bundle</h3>
+                    <div class="bundle-price">$397</div>
+                    <div class="bundle-savings">Save $200+</div>
+                    <div class="bundle-description">Complete marketing and communication solution for businesses focused on growth and customer engagement.</div>
+                    <ul class="features">
+                        <li>Email Marketing Automation</li>
+                        <li>Email Templates (Professional)</li>
+                        <li>Social Media Content Calendar</li>
+                        <li>Social Media Automation (Professional)</li>
+                        <li>Lead Generation System (Professional)</li>
+                        <li>Sales Funnel Builder (Professional)</li>
+                    </ul>
+                    <div style="text-align: center;">
+                        <a href="#" class="btn btn-primary">Get Marketing Bundle - $397</a>
+                    </div>
+                </div>
+
+                <div class="bundle-card">
+                    <h3 class="bundle-title"> Automation & Operations Bundle</h3>
+                    <div class="bundle-price">$497</div>
+                    <div class="bundle-savings">Save $300+</div>
+                    <div class="bundle-description">Complete automation and operations solution for businesses focused on efficiency and process optimization.</div>
+                    <ul class="features">
+                        <li>AI Implementation Checklist</li>
+                        <li>Business Process Automation</li>
+                        <li>Automation Workflows (Professional)</li>
+                        <li>Business Intelligence Dashboard (Professional)</li>
+                        <li>CRM System (Professional)</li>
+                        <li>Financial Management Suite (Professional)</li>
+                    </ul>
+                    <div style="text-align: center;">
+                        <a href="#" class="btn btn-primary">Get Automation Bundle - $497</a>
+                    </div>
+                </div>
+
+                <div class="bundle-card">
+                    <h3 class="bundle-title"> Security & Compliance Bundle</h3>
+                    <div class="bundle-price">$297</div>
+                    <div class="bundle-savings">Save $200+</div>
+                    <div class="bundle-description">Complete security and compliance solution for businesses that need to protect data and ensure regulatory compliance.</div>
+                    <ul class="features">
+                        <li>Security & Compliance Toolkit (Professional)</li>
+                        <li>Brand Asset Management (Professional)</li>
+                        <li>Business Intelligence Dashboard (Starter)</li>
+                        <li>Financial Management Suite (Starter)</li>
+                        <li>CRM System (Starter)</li>
+                    </ul>
+                    <div style="text-align: center;">
+                        <a href="#" class="btn btn-primary">Get Security Bundle - $297</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="guarantee">
+                <h4> 60-Day Money-Back Guarantee</h4>
+                <p>Full refund if not satisfied within 60 days. No questions asked. Keep all products even if you request a refund.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+

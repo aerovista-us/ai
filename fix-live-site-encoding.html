@@ -1,0 +1,217 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fix Encoding Issues - AeroVista</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .emoji-fix {
+            background: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border-left: 4px solid #2196F3;
+        }
+        .code {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 3px;
+            font-family: monospace;
+            margin: 5px 0;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> Fix Encoding Issues on Live Site</h1>
+        
+        <div class="emoji-fix">
+            <h2>Problem:</h2>
+            <p>Emoji characters are displaying as garbled text (like ') on the live site instead of proper emojis ().</p>
+        </div>
+
+        <div class="emoji-fix">
+            <h2>Solution 1: Add Meta Tag to All HTML Files</h2>
+            <p>Add this meta tag to the <code>&lt;head&gt;</code> section of all HTML files:</p>
+            <div class="code">
+                &lt;meta charset="UTF-8"&gt;
+            </div>
+            <p>This ensures the browser interprets the content as UTF-8.</p>
+        </div>
+
+        <div class="emoji-fix">
+            <h2>Solution 2: Replace Emojis with HTML Entities</h2>
+            <p>Replace problematic emojis with HTML entities in your files:</p>
+            <div class="code">
+                  &amp;#x1F3AF;<br>
+                  &amp;#x1F680;<br>
+                  &amp;#x2708;&amp;#xFE0F;<br>
+                  &amp;#x1F4CA;<br>
+                  &amp;#x2705;<br>
+                  &amp;#x274C;<br>
+                  &amp;#x26A0;&amp;#xFE0F;<br>
+                  &amp;#x1F4DD;<br>
+                  &amp;#x1F4C8;<br>
+                  &amp;#x1F527;<br>
+                  &amp;#x1F4A1;<br>
+                  &amp;#x1F3C6;<br>
+                  &amp;#x1F3E2;<br>
+                  &amp;#x1F4E7;<br>
+                  &amp;#x1F91D;<br>
+                  &amp;#x1F389;<br>
+                  &amp;#x1F198;<br>
+                  &amp;#x1F4DA;<br>
+                  &amp;#x1F6E0;&amp;#xFE0F;<br>
+                  &amp;#x1F50D;<br>
+                  &amp;#x1F4CB;<br>
+                  &amp;#x1F4C5;<br>
+                  &amp;#x1F4B0;<br>
+                  &amp;#x1F381;<br>
+                  &amp;#x2B50;<br>
+                  &amp;#x1F525;<br>
+                  &amp;#x1F4BC;<br>
+                  &amp;#x1F30D;<br>
+                  &amp;#x1F512;<br>
+                  &amp;#x1F393;
+            </div>
+        </div>
+
+        <div class="emoji-fix">
+            <h2>Solution 3: Use CSS Classes for Emojis</h2>
+            <p>Create CSS classes for emojis and use them in your HTML:</p>
+            <div class="code">
+                &lt;style&gt;
+                .emoji-target::before { content: ""; }
+                .emoji-rocket::before { content: ""; }
+                .emoji-plane::before { content: ""; }
+                .emoji-chart::before { content: ""; }
+                .emoji-check::before { content: ""; }
+                .emoji-cross::before { content: ""; }
+                .emoji-warning::before { content: ""; }
+                .emoji-note::before { content: ""; }
+                .emoji-trend::before { content: ""; }
+                .emoji-tools::before { content: ""; }
+                .emoji-bulb::before { content: ""; }
+                .emoji-trophy::before { content: ""; }
+                .emoji-building::before { content: ""; }
+                .emoji-email::before { content: ""; }
+                .emoji-handshake::before { content: ""; }
+                .emoji-party::before { content: ""; }
+                .emoji-sos::before { content: ""; }
+                .emoji-books::before { content: ""; }
+                .emoji-hammer::before { content: ""; }
+                .emoji-search::before { content: ""; }
+                .emoji-clipboard::before { content: ""; }
+                .emoji-calendar::before { content: ""; }
+                .emoji-money::before { content: ""; }
+                .emoji-gift::before { content: ""; }
+                .emoji-star::before { content: ""; }
+                .emoji-fire::before { content: ""; }
+                .emoji-briefcase::before { content: ""; }
+                .emoji-globe::before { content: ""; }
+                .emoji-lock::before { content: ""; }
+                .emoji-graduation::before { content: ""; }
+                &lt;/style&gt;
+            </div>
+            <p>Then use: <code>&lt;span class="emoji-target"&gt;&lt;/span&gt; Current Mission</code></p>
+        </div>
+
+        <div class="emoji-fix">
+            <h2>Solution 4: Server Configuration</h2>
+            <p>If you have access to server configuration, ensure:</p>
+            <div class="code">
+                # Apache (.htaccess)
+                AddDefaultCharset UTF-8
+                
+                # Nginx
+                charset utf-8;
+                
+                # PHP
+                header('Content-Type: text/html; charset=UTF-8');
+            </div>
+        </div>
+
+        <div class="success">
+            <h2> Quick Fix for GitHub Pages</h2>
+            <p>For GitHub Pages, the easiest solution is to:</p>
+            <ol>
+                <li>Add <code>&lt;meta charset="UTF-8"&gt;</code> to all HTML files</li>
+                <li>Replace emojis with HTML entities in your content</li>
+                <li>Push the changes to GitHub</li>
+            </ol>
+        </div>
+
+        <div class="emoji-fix">
+            <h2>Automated Fix Script</h2>
+            <p>Run this PowerShell script to automatically fix emojis in your files:</p>
+            <div class="code">
+                # PowerShell script to fix emojis
+                $files = Get-ChildItem -Recurse -Include "*.html","*.md"
+                foreach ($file in $files) {
+                    $content = Get-Content $file.FullName -Raw -Encoding UTF8
+                    $content = $content -replace '', '&amp;#x1F3AF;'
+                    $content = $content -replace '', '&amp;#x1F680;'
+                    $content = $content -replace '', '&amp;#x2708;&amp;#xFE0F;'
+                    $content = $content -replace '', '&amp;#x1F4CA;'
+                    $content = $content -replace '', '&amp;#x2705;'
+                    $content = $content -replace '', '&amp;#x274C;'
+                    $content = $content -replace '', '&amp;#x26A0;&amp;#xFE0F;'
+                    $content = $content -replace '', '&amp;#x1F4DD;'
+                    $content = $content -replace '', '&amp;#x1F4C8;'
+                    $content = $content -replace '', '&amp;#x1F527;'
+                    $content = $content -replace '', '&amp;#x1F4A1;'
+                    $content = $content -replace '', '&amp;#x1F3C6;'
+                    $content = $content -replace '', '&amp;#x1F3E2;'
+                    $content = $content -replace '', '&amp;#x1F4E7;'
+                    $content = $content -replace '', '&amp;#x1F91D;'
+                    $content = $content -replace '', '&amp;#x1F389;'
+                    $content = $content -replace '', '&amp;#x1F198;'
+                    $content = $content -replace '', '&amp;#x1F4DA;'
+                    $content = $content -replace '', '&amp;#x1F6E0;&amp;#xFE0F;'
+                    $content = $content -replace '', '&amp;#x1F50D;'
+                    $content = $content -replace '', '&amp;#x1F4CB;'
+                    $content = $content -replace '', '&amp;#x1F4C5;'
+                    $content = $content -replace '', '&amp;#x1F4B0;'
+                    $content = $content -replace '', '&amp;#x1F381;'
+                    $content = $content -replace '', '&amp;#x2B50;'
+                    $content = $content -replace '', '&amp;#x1F525;'
+                    $content = $content -replace '', '&amp;#x1F4BC;'
+                    $content = $content -replace '', '&amp;#x1F30D;'
+                    $content = $content -replace '', '&amp;#x1F512;'
+                    $content = $content -replace '', '&amp;#x1F393;'
+                    Set-Content $file.FullName -Value $content -Encoding UTF8
+                    Write-Host "Fixed: $($file.Name)"
+                }
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+

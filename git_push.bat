@@ -16,8 +16,12 @@ echo Adding all changes...
 "C:\Program Files\Git\bin\git.exe" add .
 echo.
 
+echo Fixing encoding issues for live site...
+call fix-live-encoding.bat
+echo.
+
 echo Committing changes...
-"C:\Program Files\Git\bin\git.exe" commit -m "Complete AeroVista System - 100% Production Ready
+"C:\Program Files\Git\bin\git.exe" commit -m "Complete AeroVista System - 100% Production Ready + Encoding Fix
 
 🎯 MAJOR SYSTEM COMPLETION:
 - Professional Tier: 3 comprehensive packages ($497-$997)

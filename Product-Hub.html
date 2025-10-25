@@ -30,6 +30,7 @@
 
         .header {
             background: rgba(255, 255, 255, 0.95);
+            -webkit-backdrop-filter: blur(20px);
             backdrop-filter: blur(20px);
             border-radius: 25px;
             padding: 40px;
@@ -38,6 +39,13 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(20px)) {
+            .header {
+                background: rgba(255, 255, 255, 0.98);
+            }
         }
 
         .header::before {
@@ -123,6 +131,7 @@
 
         .content {
             background: rgba(255, 255, 255, 0.95);
+            -webkit-backdrop-filter: blur(20px);
             backdrop-filter: blur(20px);
             border-radius: 25px;
             padding: 40px;
@@ -218,7 +227,7 @@
         }
 
         .product-card .features li::before {
-            content: 'âœ“';
+            content: '';
             position: absolute;
             left: 0;
             color: #48bb78;
@@ -349,12 +358,29 @@
         }
 
         .fade-in {
-            animation: fadeIn 0.8s ease-out;
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 1;
         }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Ensure content is visible after animation */
+        .fade-in.animation-complete {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+        
+        /* Fallback: ensure content is always visible */
+        .fade-in {
+            opacity: 1 !important;
+        }
+        
+        /* Only apply animation on load */
+        .fade-in.animate {
+            animation: fadeIn 0.8s ease-out forwards;
         }
     </style>
 </head>
@@ -364,7 +390,7 @@
     <div class="nav-container">
         <div class="nav-header">
             <a href="index.html" class="nav-logo">
-                <span class="logo-icon">ðŸš€</span>
+                <span class="logo-icon"></span>
                 <span class="logo-text">AeroVista</span>
             </a>
             <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
@@ -376,7 +402,7 @@
         
         <div class="nav-menu" id="nav-menu">
             <div class="nav-section">
-                <h3 class="nav-section-title">ðŸ  Main Pages</h3>
+                <h3 class="nav-section-title"> Main Pages</h3>
                 <ul class="nav-list">
                     <li><a href="index.html" class="nav-link">Home</a></li>
                     <li><a href="Product-Hub.html" class="nav-link">Product Hub</a></li>
@@ -385,7 +411,7 @@
             </div>
             
             <div class="nav-section">
-                <h3 class="nav-section-title">ðŸ›ï¸ Products & Solutions</h3>
+                <h3 class="nav-section-title"> Products & Solutions</h3>
                 <ul class="nav-list">
                     <li class="nav-item-with-sub">
                         <a href="Product-Hub.html" class="nav-link">Individual Products</a>
@@ -423,7 +449,7 @@
             </div>
             
             <div class="nav-section">
-                <h3 class="nav-section-title">ðŸ” Compare & Research</h3>
+                <h3 class="nav-section-title"> Compare & Research</h3>
                 <ul class="nav-list">
                     <li><a href="Product-Comparison.html" class="nav-link">Compare Products</a></li>
                     <li><a href="Success-Stories.html" class="nav-link">Success Stories</a></li>
@@ -432,7 +458,7 @@
             </div>
             
             <div class="nav-section">
-                <h3 class="nav-section-title">ðŸ“± Traffic Sources</h3>
+                <h3 class="nav-section-title"> Traffic Sources</h3>
                 <ul class="nav-list">
                     <li><a href="instagram-landing.html" class="nav-link">Instagram Landing</a></li>
                     <li><a href="linkedin-landing.html" class="nav-link">LinkedIn Landing</a></li>
@@ -440,7 +466,7 @@
             </div>
             
             <div class="nav-section">
-                <h3 class="nav-section-title">ðŸ†˜ Support & Help</h3>
+                <h3 class="nav-section-title"> Support & Help</h3>
                 <ul class="nav-list">
                     <li><a href="Support.html" class="nav-link">Support Center</a></li>
                     <li><a href="Success-Stories.html" class="nav-link">Customer Success Stories</a></li>
@@ -461,9 +487,17 @@
     right: 0;
     z-index: 1000;
     background: rgba(255, 255, 255, 0.95);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Fallback for browsers that don't support backdrop-filter */
+@supports not (backdrop-filter: blur(10px)) {
+    .hamburger-nav {
+        background: rgba(255, 255, 255, 0.98);
+    }
 }
 
 .nav-container {
@@ -652,34 +686,38 @@
 </style>
 
 <script>
-// Hamburger Navigation JavaScript
+// Hamburger Navigation JavaScript with error handling
 document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', function() {
-            const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
-            hamburger.setAttribute('aria-expanded', !isExpanded);
-            navMenu.classList.toggle('active');
-        });
+    try {
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
         
-        // Close menu when clicking outside
-        document.addEventListener('click', function(event) {
-            if (!hamburger.contains(event.target) && !navMenu.contains(event.target)) {
-                hamburger.setAttribute('aria-expanded', 'false');
-                navMenu.classList.remove('active');
-            }
-        });
-        
-        // Close menu when clicking on a link
-        const navLinks = document.querySelectorAll('.nav-link, .nav-sublink');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                hamburger.setAttribute('aria-expanded', 'false');
-                navMenu.classList.remove('active');
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', function() {
+                const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+                hamburger.setAttribute('aria-expanded', !isExpanded);
+                navMenu.classList.toggle('active');
             });
-        });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!hamburger.contains(event.target) && !navMenu.contains(event.target)) {
+                    hamburger.setAttribute('aria-expanded', 'false');
+                    navMenu.classList.remove('active');
+                }
+            });
+            
+            // Close menu when clicking on a link
+            const navLinks = document.querySelectorAll('.nav-link, .nav-sublink');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    hamburger.setAttribute('aria-expanded', 'false');
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+    } catch (error) {
+        console.log('Navigation not available:', error);
     }
 });
 </script>
@@ -687,7 +725,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <nav class="navigation" role="navigation" aria-label="Main navigation">
             <div class="nav-links">
                 <a href="index.html">Home</a>
-                <a href="Individual-Products.html">Products</a>
+                <a href="Product-Hub.html">Products</a>
                 <a href="Product-Bundles.html">Bundles</a>
                 <a href="Support.html">Support</a>
             </div>
@@ -710,19 +748,19 @@ document.addEventListener('DOMContentLoaded', function() {
             
             <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="stat-number">5</div>
+                    <div class="stat-number">15</div>
                     <div class="stat-label">Complete Products</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">63,000+</div>
+                    <div class="stat-number">150,000+</div>
                     <div class="stat-label">Words of Content</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">$161</div>
+                    <div class="stat-number">$2,500+</div>
                     <div class="stat-label">Total Value</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">1000%+</div>
+                    <div class="stat-number">2000%+</div>
                     <div class="stat-label">ROI Potential</div>
                 </div>
             </div>
@@ -784,6 +822,196 @@ document.addEventListener('DOMContentLoaded', function() {
                     </ul>
                     <a href="AI-Tools-Starter-Kit/landing-page.html" class="btn btn-primary">View Product</a>
                 </div>
+
+                <div class="product-card">
+                    <h3><i class="fas fa-calendar"></i> Social Media Content Calendar</h3>
+                    <div class="price">$27</div>
+                    <div class="description">365 days of social media content that builds your brand and drives engagement. Never run out of content ideas again.</div>
+                    <ul class="features">
+                        <li>365 days of content ideas</li>
+                        <li>Never run out of content again</li>
+                        <li>Build your brand consistently</li>
+                        <li>Drive engagement automatically</li>
+                        <li>Save 10+ hours per week</li>
+                        <li>Professional content that converts</li>
+                        <li>Multiple platform optimization</li>
+                        <li>Seasonal and trending content</li>
+                    </ul>
+                    <a href="Social-Media-Content-Calendar/landing-page.html" class="btn btn-primary">View Product</a>
+                </div>
+
+                <div class="product-card">
+                    <h3><i class="fas fa-cogs"></i> Business Process Automation</h3>
+                    <div class="price">$47</div>
+                    <div class="description">Automate your business processes and eliminate manual work. Save 20+ hours per week with proven automation strategies.</div>
+                    <ul class="features">
+                        <li>Save 20+ hours every week</li>
+                        <li>Eliminate manual work forever</li>
+                        <li>Automate repetitive tasks</li>
+                        <li>Reduce errors by 90%</li>
+                        <li>Scale your business efficiently</li>
+                        <li>Focus on growth, not operations</li>
+                        <li>Proven automation strategies</li>
+                        <li>Easy implementation guide</li>
+                    </ul>
+                    <a href="Business-Process-Automation/landing-page.html" class="btn btn-primary">View Product</a>
+                </div>
+            </div>
+
+            <!-- New Products Section -->
+            <h2 style="margin-top: 50px; margin-bottom: 30px;"><i class="fas fa-star"></i> New Products - Complete Business Solutions</h2>
+            <p style="margin-bottom: 40px; font-size: 1.1rem;">Expand your business capabilities with our comprehensive suite of new products designed for every aspect of business growth and automation.</p>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <h3><i class="fas fa-envelope"></i> Email Templates</h3>
+                    <div class="price">$97-$297</div>
+                    <div class="description">50+ professional email templates that convert prospects into customers. Save 80% of your email creation time.</div>
+                    <ul class="features">
+                        <li>50+ professional templates</li>
+                        <li>7 business categories</li>
+                        <li>80% time savings</li>
+                        <li>25-50% higher conversions</li>
+                        <li>Mobile-optimized designs</li>
+                        <li>Legal compliance included</li>
+                    </ul>
+                    <a href="Email-Templates/landing-page.html" class="btn btn-primary">View Product</a>
+                </div>
+
+                <div class="product-card">
+                    <h3><i class="fas fa-cogs"></i> Automation Workflows</h3>
+                    <div class="price">$197-$497</div>
+                    <div class="description">25+ ready-to-use automation workflows across 8 business categories. Eliminate manual tasks and streamline operations.</div>
+                    <ul class="features">
+                        <li>25+ automation workflows</li>
+                        <li>8 business categories</li>
+                        <li>60-80% time savings</li>
+                        <li>70-90% error reduction</li>
+                        <li>Visual workflow diagrams</li>
+                        <li>Integration guides included</li>
+                    </ul>
+                    <a href="Automation-Workflows/landing-page.html" class="btn btn-primary">View Product</a>
+                </div>
+
+                <div class="product-card">
+                    <h3><i class="fas fa-chart-line"></i> Business Intelligence Dashboard</h3>
+                    <div class="price">$197-$497</div>
+                    <div class="description">Real-time business intelligence and analytics for data-driven decisions. 15+ dashboard modules across all business functions.</div>
+                    <ul class="features">
+                        <li>15+ dashboard modules</li>
+                        <li>Real-time analytics</li>
+                        <li>50-70% faster decisions</li>
+                        <li>90-95% data accuracy</li>
+                        <li>Customizable reports</li>
+                        <li>Performance tracking</li>
+                    </ul>
+                    <a href="Business-Intelligence-Dashboard/landing-page.html" class="btn btn-primary">View Product</a>
+                </div>
+
+                <div class="product-card">
+                    <h3><i class="fas fa-bullseye"></i> Lead Generation System</h3>
+                    <div class="price">$97-$297</div>
+                    <div class="description">Complete lead generation system with 25+ tools across 6 categories. Attract, qualify, and convert prospects into customers.</div>
+                    <ul class="features">
+                        <li>25+ lead generation tools</li>
+                        <li>6 business categories</li>
+                        <li>200-500% more leads</li>
+                        <li>15-25% higher conversions</li>
+                        <li>Lead magnet templates</li>
+                        <li>Landing page designs</li>
+                    </ul>
+                    <a href="Lead-Generation-System/landing-page.html" class="btn btn-primary">View Product</a>
+                </div>
+
+                <div class="product-card">
+                    <h3><i class="fas fa-users"></i> CRM System</h3>
+                    <div class="price">$197-$597</div>
+                    <div class="description">Complete customer relationship management with 20+ modules. Organize, track, and optimize customer interactions for maximum growth.</div>
+                    <ul class="features">
+                        <li>20+ CRM modules</li>
+                        <li>Contact management</li>
+                        <li>Sales pipeline tracking</li>
+                        <li>90-95% better organization</li>
+                        <li>40-60% productivity boost</li>
+                        <li>Task automation</li>
+                    </ul>
+                    <a href="CRM-System/landing-page.html" class="btn btn-primary">View Product</a>
+                </div>
+
+                <div class="product-card">
+                    <h3><i class="fas fa-share-alt"></i> Social Media Automation</h3>
+                    <div class="price">$127-$397</div>
+                    <div class="description">Complete social media automation for 8+ platforms. Schedule, engage, and optimize your social media presence automatically.</div>
+                    <ul class="features">
+                        <li>8+ platform management</li>
+                        <li>Content scheduling</li>
+                        <li>80-90% time savings</li>
+                        <li>25-50% higher engagement</li>
+                        <li>Automated responses</li>
+                        <li>Performance analytics</li>
+                    </ul>
+                    <a href="Social-Media-Automation-Suite/landing-page.html" class="btn btn-primary">View Product</a>
+                </div>
+
+                <div class="product-card">
+                    <h3><i class="fas fa-funnel-dollar"></i> Sales Funnel Builder</h3>
+                    <div class="price">$97-$397</div>
+                    <div class="description">15+ sales funnel templates across 6 business categories. Create high-converting funnels that turn prospects into customers.</div>
+                    <ul class="features">
+                        <li>15+ funnel templates</li>
+                        <li>6 business categories</li>
+                        <li>15-25% higher conversions</li>
+                        <li>Landing page templates</li>
+                        <li>Email sequences</li>
+                        <li>A/B testing framework</li>
+                    </ul>
+                    <a href="Sales-Funnel-Builder/landing-page.html" class="btn btn-primary">View Product</a>
+                </div>
+
+                <div class="product-card">
+                    <h3><i class="fas fa-dollar-sign"></i> Financial Management Suite</h3>
+                    <div class="price">$127-$397</div>
+                    <div class="description">Complete financial management with 15+ tools. Track, analyze, and optimize business finances for maximum profitability.</div>
+                    <ul class="features">
+                        <li>15+ financial tools</li>
+                        <li>Real-time dashboard</li>
+                        <li>90-95% better visibility</li>
+                        <li>20-30% cost reduction</li>
+                        <li>Budgeting & forecasting</li>
+                        <li>Profitability analysis</li>
+                    </ul>
+                    <a href="Financial-Management-Suite/landing-page.html" class="btn btn-primary">View Product</a>
+                </div>
+
+                <div class="product-card">
+                    <h3><i class="fas fa-palette"></i> Brand Asset Management</h3>
+                    <div class="price">$67-$197</div>
+                    <div class="description">Complete brand asset management with 100+ professional assets. Maintain brand consistency and professional presentation.</div>
+                    <ul class="features">
+                        <li>100+ brand assets</li>
+                        <li>Brand guidelines</li>
+                        <li>90-95% consistency</li>
+                        <li>50-70% team efficiency</li>
+                        <li>Creative templates</li>
+                        <li>Asset organization</li>
+                    </ul>
+                    <a href="Brand-Asset-Management-System/landing-page.html" class="btn btn-primary">View Product</a>
+                </div>
+
+                <div class="product-card">
+                    <h3><i class="fas fa-shield-alt"></i> Security & Compliance Toolkit</h3>
+                    <div class="price">$197-$597</div>
+                    <div class="description">Complete security and compliance system with 20+ tools. Protect business data and ensure regulatory compliance.</div>
+                    <ul class="features">
+                        <li>20+ security tools</li>
+                        <li>8 business categories</li>
+                        <li>80-90% security improvement</li>
+                        <li>95-100% compliance</li>
+                        <li>Risk assessment</li>
+                        <li>Incident response</li>
+                    </ul>
+                    <a href="Security-Compliance-Toolkit/landing-page.html" class="btn btn-primary">View Product</a>
+                </div>
             </div>
         </div>
 
@@ -804,22 +1032,22 @@ document.addEventListener('DOMContentLoaded', function() {
             
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin: 30px 0;">
                 <div style="background: linear-gradient(135deg, #f7fafc, #edf2f7); padding: 25px; border-radius: 15px; text-align: center;">
-                    <h4 style="color: #2d3748; margin-bottom: 15px; font-size: 1.5rem;">ðŸ’° Save Money</h4>
+                    <h4 style="color: #2d3748; margin-bottom: 15px; font-size: 1.5rem;"> Save Money</h4>
                     <p style="color: #4a5568;">Get $112 worth of freedom for just $79 - save $33!</p>
                 </div>
                 
                 <div style="background: linear-gradient(135deg, #f7fafc, #edf2f7); padding: 25px; border-radius: 15px; text-align: center;">
-                    <h4 style="color: #2d3748; margin-bottom: 15px; font-size: 1.5rem;">ðŸŽ Exclusive Bonuses</h4>
+                    <h4 style="color: #2d3748; margin-bottom: 15px; font-size: 1.5rem;"> Exclusive Bonuses</h4>
                     <p style="color: #4a5568;">1-hour consultation, priority support, community access</p>
                 </div>
                 
                 <div style="background: linear-gradient(135deg, #f7fafc, #edf2f7); padding: 25px; border-radius: 15px; text-align: center;">
-                    <h4 style="color: #2d3748; margin-bottom: 15px; font-size: 1.5rem;">âš¡ Complete Solution</h4>
+                    <h4 style="color: #2d3748; margin-bottom: 15px; font-size: 1.5rem;"> Complete Solution</h4>
                     <p style="color: #4a5568;">Everything you need for AI business transformation</p>
                 </div>
                 
                 <div style="background: linear-gradient(135deg, #f7fafc, #edf2f7); padding: 25px; border-radius: 15px; text-align: center;">
-                    <h4 style="color: #2d3748; margin-bottom: 15px; font-size: 1.5rem;">ðŸš€ Fast Results</h4>
+                    <h4 style="color: #2d3748; margin-bottom: 15px; font-size: 1.5rem;"> Fast Results</h4>
                     <p style="color: #4a5568;">See results in 30 days with our proven system</p>
                 </div>
             </div>
@@ -880,26 +1108,54 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             
             <div style="text-align: center; color: #718096; font-size: 0.9rem;">
-                <i class="fas fa-lock"></i> Secure payment â€¢ Instant access â€¢ 30-day guarantee
+                <i class="fas fa-lock"></i> Secure payment  Instant access  30-day guarantee
             </div>
         </div>
     </div>
 
     <script>
-        // Add some dynamic effects
-        document.querySelectorAll('.product-card, .stat-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
+        // Add some dynamic effects with error handling
+        try {
+            document.querySelectorAll('.product-card, .stat-card').forEach(card => {
+                if (card) {
+                    card.addEventListener('mouseenter', function() {
+                        this.style.transform = 'translateY(-10px) scale(1.02)';
+                    });
+                    
+                    card.addEventListener('mouseleave', function() {
+                        this.style.transform = 'translateY(0) scale(1)';
+                    });
+                }
+            });
+        } catch (error) {
+            console.log('Product card effects not available:', error);
+        }
+        
+        // Ensure fade-in animations complete properly
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add animate class to trigger animation
+            document.querySelectorAll('.fade-in').forEach(function(element) {
+                element.classList.add('animate');
             });
             
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
+            // Ensure content is visible after animation
+            setTimeout(function() {
+                document.querySelectorAll('.fade-in').forEach(function(element) {
+                    element.classList.add('animation-complete');
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                });
+            }, 1000); // After animation completes
         });
     </script>
-<script src="performance.js"></script>    <script src="script.js"></script>
+    <!-- <script src="performance.js"></script> -->
+    <!-- <script src="script.js"></script> -->
 </body>
 </html>
+
+
+
+
 
 
 
