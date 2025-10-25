@@ -50,3 +50,4 @@ foreach ($htmlFile in $htmlFiles) {
 
 Write-Host "`nNavigation update complete!" -ForegroundColor Green
 Write-Host "All pages now have the new hamburger-style navigation with file tree structure." -ForegroundColor Cyan
+

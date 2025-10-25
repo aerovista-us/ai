@@ -4,124 +4,564 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enterprise Tier - AeroVista</title>
-    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        .enterprise-hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        
-        .enterprise-hero h1 {
-            font-size: 3.5rem;
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 60px;
+        }
+
+        .header h1 {
+            font-size: 4.5rem;
             margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
-        
-        .enterprise-features {
-            padding: 60px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+
+        .header p {
+            font-size: 1.6rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
         }
-        
-        .feature-grid {
+
+        .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin: 10px;
+            font-size: 1.1rem;
+        }
+
+        .packages-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
         }
-        
-        .feature-card {
+
+        .package-card {
             background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            text-align: center;
+            border-radius: 25px;
+            padding: 50px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+            position: relative;
         }
-        
-        .feature-icon {
-            font-size: 3rem;
+
+        .package-card:hover {
+            transform: translateY(-15px);
+        }
+
+        .package-card.featured {
+            border: 4px solid #667eea;
+            transform: scale(1.05);
+        }
+
+        .package-card.featured::before {
+            content: "ENTERPRISE PLUS";
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #667eea;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .package-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1a202c;
             margin-bottom: 20px;
         }
-        
-        .cta-section {
-            background: #f8f9fa;
-            padding: 60px 20px;
+
+        .package-price {
+            font-size: 4rem;
+            font-weight: 900;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .package-savings {
+            color: #48bb78;
+            font-weight: 700;
+            margin-bottom: 25px;
+            font-size: 1.2rem;
+        }
+
+        .package-description {
+            color: #4a5568;
+            margin-bottom: 35px;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        .package-features {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .package-features li {
+            padding: 15px 0;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+
+        .package-features li:last-child {
+            border-bottom: none;
+        }
+
+        .package-features li i {
+            color: #48bb78;
+            margin-right: 15px;
+            font-size: 1.4rem;
+        }
+
+        .package-actions {
             text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 20px 40px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(45deg, #f7fafc, #edf2f7);
+            color: #4a5568;
+        }
+
+        .btn-secondary:hover {
+            background: linear-gradient(45deg, #edf2f7, #e2e8f0);
+        }
+
+        .features-section {
+            background: white;
+            border-radius: 25px;
+            padding: 50px;
+            margin-bottom: 60px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .features-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #1a202c;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .feature-icon {
+            font-size: 4rem;
+            color: #667eea;
+            margin-bottom: 25px;
+        }
+
+        .feature-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 20px;
+        }
+
+        .feature-description {
+            color: #4a5568;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        .testimonials {
+            background: white;
+            border-radius: 25px;
+            padding: 50px;
+            margin-bottom: 60px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .testimonials-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #1a202c;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .testimonial {
+            background: linear-gradient(135deg, #f7fafc, #edf2f7);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #4a5568;
+            margin-bottom: 25px;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-role {
+            color: #667eea;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 25px;
+            padding: 60px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .cta-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+        }
+
+        .cta-description {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            background: white;
+            color: #667eea;
+            padding: 25px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            font-size: 1.3rem;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+        }
+
+        .guarantee {
+            background: white;
+            border-radius: 25px;
+            padding: 50px;
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .guarantee-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1a202c;
+            margin-bottom: 25px;
+        }
+
+        .guarantee-text {
+            color: #4a5568;
+            font-size: 1.3rem;
+            line-height: 1.7;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 3rem;
+            }
+            
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
 <body>
-    <a href="#main-content" class="sr-only" style="position: absolute; top: -40px; left: 6px; background: #000; color: #fff; padding: 8px; text-decoration: none; z-index: 1000;" onfocus="this.style.top=`6px`" onblur="this.style.top=`-40px`">Skip to main content</a>
-    
-    <nav class="navigation" role="navigation" aria-label="Main navigation">
-        <div class="nav-links">
-            <a href="../index.html">Home</a>
-            <a href="../Product-Hub.html">Products</a>
-            <a href="../Product-Bundles.html">Bundles</a>
-            <a href="../Product-Comparison.html">Compare</a>
-            <a href="../Support.html">Support</a>
+    <div class="container">
+        <div class="header">
+            <h1>🏢 Enterprise Tier</h1>
+            <p>Custom enterprise solutions for large organizations ready to transform globally</p>
+            <div class="badge">Dedicated Enterprise Team</div>
+            <div class="badge">Custom Development</div>
+            <div class="badge">Global Implementation</div>
+            <div class="badge">Executive Training</div>
+            <div class="badge">Compliance Support</div>
         </div>
-    </nav>
-    
-    <div class="enterprise-hero" id="main-content">
-        <h1>🏢 Enterprise Tier</h1>
-        <p style="font-size: 1.3rem; margin-bottom: 30px;">Complete AI transformation for large organizations</p>
-        <p style="font-size: 1.1rem; opacity: 0.9;">Custom solutions, dedicated support, and enterprise-grade security</p>
-    </div>
-    
-    <div class="enterprise-features">
-        <h2 style="text-align: center; margin-bottom: 40px; color: #333;">Enterprise-Grade Features</h2>
-        
-        <div class="feature-grid">
-            <div class="feature-card">
-                <div class="feature-icon">🔒</div>
-                <h3>Enterprise Security</h3>
-                <p>Advanced security protocols, SSO integration, and compliance with enterprise standards.</p>
+
+        <div class="packages-grid">
+            <div class="package-card">
+                <div class="package-title">Enterprise Automation Suite</div>
+                <div class="package-price">$2,497</div>
+                <div class="package-savings">Save $12,500+ (83% off)</div>
+                <div class="package-description">
+                    Comprehensive enterprise automation solution for large organizations ready to scale globally with dedicated support and custom solutions.
+                </div>
+                <ul class="package-features">
+                    <li><i class="fas fa-check"></i> All 5 Core Products (Enhanced Enterprise versions)</li>
+                    <li><i class="fas fa-check"></i> Custom Enterprise Implementation Guide (50,000+ words)</li>
+                    <li><i class="fas fa-check"></i> Dedicated Enterprise Success Manager (12-month support)</li>
+                    <li><i class="fas fa-check"></i> Custom Automation Architecture (Tailored to your organization)</li>
+                    <li><i class="fas fa-check"></i> Advanced Enterprise Analytics (Business intelligence suite)</li>
+                    <li><i class="fas fa-check"></i> Multi-department Training (Comprehensive team education)</li>
+                    <li><i class="fas fa-check"></i> Custom Integration Development (Connect all your systems)</li>
+                    <li><i class="fas fa-check"></i> White-label Solutions (Complete brand customization)</li>
+                    <li><i class="fas fa-check"></i> Dedicated Support Team (2-hour response time)</li>
+                    <li><i class="fas fa-check"></i> Monthly Executive Reviews (12 months included)</li>
+                    <li><i class="fas fa-check"></i> Custom Reporting Dashboard (Enterprise-specific metrics)</li>
+                    <li><i class="fas fa-check"></i> Scalability Planning (Growth and expansion strategy)</li>
+                    <li><i class="fas fa-check"></i> Compliance Support (Industry-specific requirements)</li>
+                    <li><i class="fas fa-check"></i> Security Audit (Enterprise-grade security)</li>
+                </ul>
+                <div class="package-actions">
+                    <a href="#" class="btn" onclick="purchasePackage('Enterprise-Automation-Suite', 2497)">Get Started - $2,497</a>
+                </div>
             </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">👥</div>
-                <h3>Dedicated Support</h3>
-                <p>24/7 dedicated support team with enterprise SLA guarantees and priority response.</p>
+
+            <div class="package-card">
+                <div class="package-title">Enterprise Digital Transformation</div>
+                <div class="package-price">$4,997</div>
+                <div class="package-savings">Save $20,000+ (80% off)</div>
+                <div class="package-description">
+                    Complete digital transformation package for organizations ready for comprehensive change and global scaling with custom development.
+                </div>
+                <ul class="package-features">
+                    <li><i class="fas fa-check"></i> Complete Digital Transformation Strategy (Comprehensive roadmap)</li>
+                    <li><i class="fas fa-check"></i> Custom Enterprise Solutions (Tailored to your industry)</li>
+                    <li><i class="fas fa-check"></i> Advanced Process Optimization (Complete business process redesign)</li>
+                    <li><i class="fas fa-check"></i> Enterprise Analytics Suite (Advanced business intelligence)</li>
+                    <li><i class="fas fa-check"></i> Multi-location Support (Global implementation)</li>
+                    <li><i class="fas fa-check"></i> Executive Training Program (Leadership education)</li>
+                    <li><i class="fas fa-check"></i> Change Management Support (Organizational transformation)</li>
+                    <li><i class="fas fa-check"></i> Custom Development (Bespoke solutions)</li>
+                    <li><i class="fas fa-check"></i> Integration Architecture (Connect all systems)</li>
+                    <li><i class="fas fa-check"></i> Security Implementation (Enterprise-grade security)</li>
+                    <li><i class="fas fa-check"></i> Compliance Framework (Industry-specific compliance)</li>
+                    <li><i class="fas fa-check"></i> Performance Monitoring (Ongoing optimization)</li>
+                    <li><i class="fas fa-check"></i> ROI Optimization (Continuous improvement)</li>
+                    <li><i class="fas fa-check"></i> Long-term Partnership (Ongoing relationship)</li>
+                </ul>
+                <div class="package-actions">
+                    <a href="#" class="btn" onclick="purchasePackage('Enterprise-Digital-Transformation', 4997)">Get Started - $4,997</a>
+                </div>
             </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">⚙️</div>
-                <h3>Custom Integration</h3>
-                <p>Tailored solutions that integrate seamlessly with your existing enterprise infrastructure.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">📊</div>
-                <h3>Advanced Analytics</h3>
-                <p>Comprehensive reporting and analytics dashboard for enterprise-level insights.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">🌐</div>
-                <h3>Multi-Location Support</h3>
-                <p>Global deployment capabilities with regional data centers and compliance.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">🎯</div>
-                <h3>Custom Training</h3>
-                <p>Dedicated training programs and change management support for your teams.</p>
+
+            <div class="package-card featured">
+                <div class="package-title">Enterprise Complete Solution</div>
+                <div class="package-price">$9,997</div>
+                <div class="package-savings">Save $40,000+ (80% off)</div>
+                <div class="package-description">
+                    Ultimate enterprise solution for large corporations needing comprehensive enterprise solutions with dedicated team and custom development.
+                </div>
+                <ul class="package-features">
+                    <li><i class="fas fa-check"></i> Complete Enterprise System (All products + custom enhancements)</li>
+                    <li><i class="fas fa-check"></i> Custom Enterprise Platform (Bespoke automation platform)</li>
+                    <li><i class="fas fa-check"></i> Dedicated Enterprise Team (Dedicated support team)</li>
+                    <li><i class="fas fa-check"></i> Custom Development (Bespoke solutions development)</li>
+                    <li><i class="fas fa-check"></i> Multi-tenant Architecture (Scalable enterprise platform)</li>
+                    <li><i class="fas fa-check"></i> Advanced Security (Enterprise-grade security)</li>
+                    <li><i class="fas fa-check"></i> Compliance Management (Industry-specific compliance)</li>
+                    <li><i class="fas fa-check"></i> Global Implementation (Worldwide deployment)</li>
+                    <li><i class="fas fa-check"></i> Executive Dashboard (C-level reporting)</li>
+                    <li><i class="fas fa-check"></i> Custom Training Program (Comprehensive education)</li>
+                    <li><i class="fas fa-check"></i> Change Management (Organizational transformation)</li>
+                    <li><i class="fas fa-check"></i> Performance Optimization (Continuous improvement)</li>
+                    <li><i class="fas fa-check"></i> Long-term Partnership (Ongoing relationship)</li>
+                    <li><i class="fas fa-check"></i> Priority Development (Custom feature development)</li>
+                </ul>
+                <div class="package-actions">
+                    <a href="#" class="btn" onclick="purchasePackage('Enterprise-Complete-Solution', 9997)">Get Started - $9,997</a>
+                </div>
             </div>
         </div>
-    </div>
-    
-    <div class="cta-section">
-        <h2>Ready for Enterprise Transformation?</h2>
-        <p style="font-size: 1.2rem; margin-bottom: 30px; color: #666;">Contact our enterprise team for a custom solution tailored to your organization's needs.</p>
-        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-            <a href="../Support.html" class="btn btn-primary">Contact Enterprise Team</a>
-            <a href="../Product-Comparison.html" class="btn btn-secondary">Compare All Tiers</a>
+
+        <div class="features-section">
+            <div class="features-title">Enterprise Tier Features</div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🏢</div>
+                    <div class="feature-title">Dedicated Enterprise Support</div>
+                    <div class="feature-description">Personal enterprise success manager, dedicated support team, and priority development for your transformation journey.</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔧</div>
+                    <div class="feature-title">Custom Enterprise Solutions</div>
+                    <div class="feature-description">Bespoke automation platform, custom development, and enterprise-specific solutions designed for your organization.</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-title">Advanced Enterprise Analytics</div>
+                    <div class="feature-description">Executive dashboard, custom metrics, advanced reporting, and performance monitoring for data-driven decisions.</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🌍</div>
+                    <div class="feature-title">Global Implementation</div>
+                    <div class="feature-description">Worldwide deployment support, multi-timezone support, and global coordination for international operations.</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎓</div>
+                    <div class="feature-title">Executive Training</div>
+                    <div class="feature-description">Leadership education, executive training program, and change management support for organizational transformation.</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔒</div>
+                    <div class="feature-title">Enterprise Security</div>
+                    <div class="feature-description">Enterprise-grade security, compliance management, and advanced security implementation for enterprise requirements.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonials">
+            <div class="testimonials-title">Enterprise Success Stories</div>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        "The Enterprise Digital Transformation package transformed our global operations. We went from manual processes across 50+ locations to 95% automation, increased our efficiency by 1000%, and our executive team finally has real-time visibility into operations."
+                    </div>
+                    <div class="testimonial-author">Sarah Johnson</div>
+                    <div class="testimonial-role">CEO, Global Manufacturing Company</div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        "The Enterprise Complete Solution package helped us scale our operations globally. The custom development and dedicated support team were game-changers. We couldn't have achieved our growth without the Enterprise tier."
+                    </div>
+                    <div class="testimonial-author">Mike Chen</div>
+                    <div class="testimonial-role">CTO, Fortune 500 Technology Company</div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        "The Enterprise Automation Suite gave us the tools and support we needed to transform our healthcare operations. The compliance support and security implementation were invaluable. We're now serving 10x more patients with the same team."
+                    </div>
+                    <div class="testimonial-author">Lisa Rodriguez</div>
+                    <div class="testimonial-role">Chief Medical Officer, Healthcare Enterprise</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <div class="cta-title">Ready to Transform Your Enterprise?</div>
+            <div class="cta-description">Join Fortune 500 companies that have transformed their operations with Enterprise Tier solutions and custom development.</div>
+            <div class="cta-buttons">
+                <a href="#" class="cta-btn" onclick="scheduleConsultation()">Schedule Enterprise Consultation</a>
+                <a href="#" class="cta-btn" onclick="viewPackages()">View All Packages</a>
+                <a href="#" class="cta-btn" onclick="contactSupport()">Contact Enterprise Support</a>
+            </div>
+        </div>
+
+        <div class="guarantee">
+            <div class="guarantee-title">30-Day Money-Back Guarantee</div>
+            <div class="guarantee-text">
+                Try any Enterprise Tier package risk-free for 30 days. If you don't see a 500%+ ROI improvement, we'll refund your money, no questions asked. Plus, keep all the enterprise resources and materials.
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2024 AeroVista. All rights reserved. | Enterprise Tier - Custom Solutions for Large Organizations</p>
         </div>
     </div>
-    
-    <script src="../script.js"></script>
+
+    <script>
+        function purchasePackage(packageName, price) {
+            alert(`Redirecting to enterprise checkout for ${packageName} - $${price}`);
+            // Add actual enterprise checkout integration here
+        }
+
+        function scheduleConsultation() {
+            alert('Redirecting to enterprise consultation booking...');
+            // Add enterprise consultation booking integration here
+        }
+
+        function viewPackages() {
+            alert('Redirecting to all enterprise packages...');
+            // Add navigation to enterprise packages page
+        }
+
+        function contactSupport() {
+            alert('Redirecting to enterprise support...');
+            // Add enterprise support contact integration
+        }
+    </script>
 </body>
 </html>
